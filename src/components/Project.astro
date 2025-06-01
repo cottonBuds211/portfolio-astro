@@ -1,0 +1,32 @@
+---
+const { date, title, description, link, img } = Astro.props;
+---
+
+<div
+  class="flex flex-col-reverse lg:flex-row lg:gap-4 justify-between items-center p-4 box-border transition-all ease-in duration-200 hover:bg-black/5 hover:shadow-sm rounded-md"
+>
+  <div class="flex flex-1 flex-col gap-2">
+    <h4 class="text-sm">{date}</h4>
+    <h3 class="text-3xl">{title}</h3>
+    <p>{description}</p>
+    <a class="flex gap-2 cursor-pointer"
+      >{link}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-external-link-icon lucide-external-link"
+        ><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
+          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+        ></path></svg
+      ></a
+    >
+  </div>
+  <div class="flex-1 w-full h-50 border-1"><img /></div>
+</div>

@@ -1,11 +1,114 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Button from "../components/Button.astro";
+import Experience from "../components/Experience.astro";
+import Project from "../components/Project.astro";
+import Technology from "../components/Technology.astro";
+import { toolStack } from "../data/data";
+import { backEndStack } from "../data/data";
+import { frontEndStack } from "../data/data";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
 ---
 
-<Layout>
-	<Welcome />
+<Layout pageTitle="Home">
+  <div
+    class="relative h-screen flex flex-col justify-center items-center text-center gap-5"
+  >
+    <p class="text-3xl">
+      Hi, Im
+      <span class="text-highlight text-glow"> Manuel Dalacan </span>
+      <br />
+      a full stack developer
+    </p>
+    <p class="text-md text-secondary-text">
+      As a fullstack developer, I build modern web apps with tools like
+      <br />
+      <span class="text-highlight text-glow">
+        React, Astro.js, Next.js & Tailwind CSS.
+      </span>
+    </p>
+    <div class="flex gap-4">
+      <Button title="Resumé" />
+      <Button title="Contact" />
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-20">
+    <section>
+      <h2>Experience</h2>
+      <hr class="text-black/20" />
+      <div class="relative flex flex-col">
+        <Experience
+          date="Jan - Apr 2025"
+          location="Muntinlupa City"
+          position="Web Dev Intern"
+          company="Advanced World Solutions"
+        />
+        <!-- <Experience
+          date="Jan - Apr 2025"
+          location="Muntinlupa City"
+          position="Web Dev Intern"
+          company="Advanced World Solutions"
+        /> -->
+      </div>
+    </section>
+    <section>
+      <h2>Projects</h2>
+      <hr class="text-black/20" />
+      <div class="relative flex flex-col gap-5">
+        <Project
+          date="Dec 2024"
+          title="OpticalRecords"
+          description="A records management, appointment tracking and inventory all in one."
+          link="github.com"
+        />
+      </div>
+    </section>
+    <section>
+      <h2>Tehchnical Knowledge</h2>
+      <hr class="text-black/20" />
+      <div class="flex flex-col gap-4 p-4">
+        <h3>Front-End</h3>
+        <div class="flex flex-wrap gap-2">
+          {
+            frontEndStack.map((item) => (
+              <Technology
+                color={item.color}
+                title={item.title}
+                logo={item.logo}
+              />
+            ))
+          }
+        </div>
+        <h3>Back-End</h3>
+        <div class="flex flex-wrap gap-1">
+          {
+            backEndStack.map((item) => (
+              <Technology
+                color={item.color}
+                title={item.title}
+                logo={item.logo}
+              />
+            ))
+          }
+        </div>
+        <h3>Tools</h3>
+        <div class="flex flex-wrap gap-1">
+          {
+            toolStack.map((item) => (
+              <Technology
+                color={item.color}
+                title={item.title}
+                logo={item.logo}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>Contact</h2>
+      <hr class="text-black/20" />
+    </section>
+  </div>
 </Layout>

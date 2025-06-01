@@ -1,0 +1,17 @@
+---
+import Navigation from "./Navigation.astro";
+---
+
+<header
+  x-data="{scrolled: false}"
+  x-init="
+  const update = () => scrolled = window.scrollY > 0;
+  update();
+  window.addEventListener('scroll', update);"
+  :class="scrolled ? 'backdrop-blur-sm shadow-sm' : 'bg-transparent'"
+  class="fixed w-full top-0 h-16 z-50 transition-all duration-300"
+>
+  <nav class="relative w-full max-w-[80ch] h-full mx-auto">
+    <Navigation />
+  </nav>
+</header>
