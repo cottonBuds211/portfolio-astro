@@ -3,7 +3,7 @@ const { color, logo, title } = Astro.props;
 ---
 
 <div
-  class={`w-fit h-fit border-1 border-black/10 p-3 flex flex-row items-center gap-2  backdrop-blur-2xl cursor-default hover:bg-black/15 `}
+  class={`w-fit h-fit border-1 border-black/10 p-3 flex flex-row items-center gap-2 transition-all duration-200 ease-in  hover:bg-slate-500/20  hover:backdrop-blur-2xl  cursor-default`}
 >
   {logo && <img src={logo} class="w-5" />}
   <div>
