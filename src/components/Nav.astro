@@ -1,0 +1,27 @@
+---
+import Navigation from "./Navigation.astro";
+
+---
+
+<nav
+  x-data="{scrolled: false}"
+  x-init="
+  const update = () => scrolled = window.scrollY > 0;
+  update();
+  window.addEventListener('scroll', update);"
+  :class="scrolled ? 'backdrop-blur-sm shadow-sm' : 'bg-transparent'"
+  class=" fixed w-full top-0 h-16 z-50 transition-all duration-300"
+>
+  <div class="nav relative w-full max-w-[80ch] h-full mx-5 md:mx-auto">
+    <Navigation />
+  </div>
+</nav>
+
+<script>
+  import gsap from 'gsap'
+    gsap.from('.nav', {
+      y: '-100%', duration: 1, ease: 'bounce', delay: 4.5
+    } 
+
+  )
+</script>

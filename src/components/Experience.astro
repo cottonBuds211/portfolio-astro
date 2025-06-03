@@ -4,15 +4,12 @@ const { date, location, position, company } = Astro.props;
 
 <div class="relative flex flex-col pl-8 pb-5 last:pb-0 gap-2">
   <!-- DOT -->
-  <span class="absolute left-1 top-2 rounded-full w-2.5 h-2.5 bg-black text-black"
-  ></span>
-  <span
-    class="absolute w-[2px] left-[.5rem] top-[.5rem] h-full last:h-full bg-black"
+    <span class="absolute left-1 top-2 rounded-full w-2.5 h-2.5 bg-black text-black"
   ></span>
 
   <div class="flex justify-between">
-    <h4 class="text-sm">{date}</h4>
-    <h4 class="flex items-center gap-1 text-black/60 text-sm">
+    <h4 class="text-sm text-secondary">{date}</h4>
+    <h4 class="flex items-center gap-1 text-secondary text-sm">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -31,5 +28,5 @@ const { date, location, position, company } = Astro.props;
     </h4>
   </div>
   <h3 class="text-3xl">{position}</h3>
-  <h4>{company}</h4>
+  <h4 class="text-secondary">{company}</h4>
 </div>
