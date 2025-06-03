@@ -1,6 +1,7 @@
 ---
 import Button from "../components/Button.astro";
 import Experience from "../components/Experience.astro";
+import HorizontalLine from "../components/HorizontalLine.astro";
 import Project from "../components/Project.astro";
 import Technology from "../components/Technology.astro";
 import { toolStack } from "../data/data";
@@ -8,107 +9,138 @@ import { backEndStack } from "../data/data";
 import { frontEndStack } from "../data/data";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
+
+
 ---
 
-<Layout pageTitle="Home">
-  <div
-    class="relative h-screen flex flex-col justify-center items-center text-center gap-5"
+<Layout pageTitle="Manuel">
+
+  
+  <header class="bg-gradient-to-b from-blue-300  to-default-bg">
+      <div
+    class="relative w-full h-screen flex flex-col justify-center items-center text-center gap-5 "
   >
-    <p class="text-3xl">
-      Hi, Im
-      <span class="text-highlight text-glow"> Manuel Dalacan </span>
+    <!-- <p class="font-wdx ">
+      sic <span class="inline-block w-1 h-1 align-middle bg-gray-50 rounded-full"></span> parvis  <span class="inline-block w-1 h-1 align-middle bg-gray-50 rounded-full"></span> magna
+    </p> -->
+    <p class=" text-8xl font-bold">
+      <span class="hi inline-block">Hi,</span>
+      <span class="im"> Im   </span>
+        <span class="name inline-block text-highlight text-glow"> Manuel Dalacan </span>
+
       <br />
-      a full stack developer
+     <span class="description ">
+       {"a full stack developer".split("").map((char) => (<span       class="inline-block opacity-0 -translate-y-2"
+        >{char === " " ? '\u00A0' : char}</span>))}
+     </span>
     </p>
-    <p class="text-md text-secondary-text">
+     <div class="subtitle inline-block opacity-0 -translate-y-8 text-md text-secondary-text">
+    <p>
       As a fullstack developer, I build modern web apps with tools like
       <br />
       <span class="text-highlight text-glow">
         React, Astro.js, Next.js & Tailwind CSS.
       </span>
     </p>
-    <div class="flex gap-4">
-      <Button title="Resumé" />
+   
+     <div class="flex justify-center pt-4 gap-4">
+       <Button title="Resumé" />
       <Button title="Contact" />
+     </div>
     </div>
-  </div>
-
-  <div class="flex flex-col gap-20">
-    <section>
-      <h2>Experience</h2>
-      <hr class="text-black/20" />
-      <div class="relative flex flex-col">
-        <Experience
-          date="Jan - Apr 2025"
-          location="Muntinlupa City"
-          position="Web Dev Intern"
-          company="Advanced World Solutions"
-        />
-        <!-- <Experience
-          date="Jan - Apr 2025"
-          location="Muntinlupa City"
-          position="Web Dev Intern"
-          company="Advanced World Solutions"
-        /> -->
-      </div>
-    </section>
-    <section>
-      <h2>Projects</h2>
-      <hr class="text-black/20" />
-      <div class="relative flex flex-col gap-5">
-        <Project
-          date="Dec 2024"
-          title="OpticalRecords"
-          description="A records management, appointment tracking and inventory all in one."
-          link="github.com"
-        />
-      </div>
-    </section>
-    <section>
-      <h2>Tehchnical Knowledge</h2>
-      <hr class="text-black/20" />
-      <div class="flex flex-col gap-4 p-4">
-        <h3>Front-End</h3>
-        <div class="flex flex-wrap gap-2">
-          {
-            frontEndStack.map((item) => (
-              <Technology
-                color={item.color}
-                title={item.title}
-                logo={item.logo}
-              />
-            ))
-          }
+    </div>
+  </header>
+  <main class="max-w-[80ch] mx-5 md:mx-auto my-20">
+  
+    <div class="flex flex-col gap-20">
+      <section>
+        <h2>Experience</h2>
+        <HorizontalLine />
+<div class="relative flex flex-col  pb-10 last:pb-0 gap-2">
+<!-- Line -->
+  <span
+    class="absolute w-[2px] left-[.5rem] top-[.5rem] h-full bg-gradient-to-b from-black  to-transparent to-90%"
+  ></span>
+          <Experience
+            date="Jan - Apr 2025"
+            location="Muntinlupa City"
+            position="Web Dev Intern"
+            company="Advanced World Solutions"
+          />
+        
         </div>
-        <h3>Back-End</h3>
-        <div class="flex flex-wrap gap-1">
-          {
-            backEndStack.map((item) => (
-              <Technology
-                color={item.color}
-                title={item.title}
-                logo={item.logo}
-              />
-            ))
-          }
+      </section>
+      <section>
+        <h2>Projects</h2>
+        <HorizontalLine />
+        <div class="relative flex flex-col gap-5">
+          <Project
+            date="Dec 2024"
+            title="OpticalRecords"
+            description="A records management, appointment tracking and inventory all in one."
+            link="github.com"
+          />
         </div>
-        <h3>Tools</h3>
-        <div class="flex flex-wrap gap-1">
-          {
-            toolStack.map((item) => (
-              <Technology
-                color={item.color}
-                title={item.title}
-                logo={item.logo}
-              />
-            ))
-          }
+      </section>
+      <section>
+        <h2>Tehchnical Knowledge</h2>
+        <HorizontalLine />
+        <div class="flex flex-col gap-4 p-4">
+          <h3>Front-End</h3>
+          <div class="flex flex-wrap gap-2">
+            {
+              frontEndStack.map((item) => (
+                <Technology
+                  color={item.color}
+                  title={item.title}
+                  logo={item.logo}
+                />
+              ))
+            }
+          </div>
+          <h3>Back-End</h3>
+          <div class="flex flex-wrap gap-1">
+            {
+              backEndStack.map((item) => (
+                <Technology
+                  color={item.color}
+                  title={item.title}
+                  logo={item.logo}
+                />
+              ))
+            }
+          </div>
+          <h3>Tools</h3>
+          <div class="flex flex-wrap gap-1">
+            {
+              toolStack.map((item) => (
+                <Technology
+                  color={item.color}
+                  title={item.title}
+                  logo={item.logo}
+                />
+              ))
+            }
+          </div>
         </div>
-      </div>
-    </section>
-    <section>
-      <h2>Contact</h2>
-      <hr class="text-black/20" />
-    </section>
-  </div>
+      </section>
+      <section>
+        <h2>Contact</h2>
+        <HorizontalLine />
+        <div>
+          <h2>Lets get in touch!</h2>
+          <p>You can reach me at my e-mail. </p>
+        </div>
+      </section>
+    </div>
+  </main>
 </Layout>
+
+<script>
+  import gsap from 'gsap'
+
+  const timeline = gsap.timeline({defaults: {duration: 1, ease:'power1'}})
+  timeline.from('.hi', {opacity:0}).from('.im', {opacity:0}).from('.name', {opacity:0, y:'-100%', duration:0.5}).to('.description span', {y:0, opacity:1,duration:0.3, stagger:0.05,repeat:0, ease:'power2.out'}).to('.subtitle', {opacity:1, y:0,duration: 1 ,ease:'bounce'})
+
+
+</script>

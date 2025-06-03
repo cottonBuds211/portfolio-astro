@@ -1,6 +1,6 @@
 ---
 import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import Nav from "../components/Nav.astro";
 import "../styles/global.css";
 
 const { pageTitle } = Astro.props;
@@ -19,11 +19,9 @@ const { pageTitle } = Astro.props;
     ></script></head
   >
 
-  <body>
-    <Header />
-    <div class="w-full max-w-[80ch] mx-auto">
-      <slot />
-    </div>
-    <Footer />
+  <body class="font-inter text-gray-950">
+      <Nav client:load/>
+        <slot />
+      <Footer />
   </body>
 </html>
