@@ -9,65 +9,90 @@ import { backEndStack } from "../data/data";
 import { frontEndStack } from "../data/data";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
-
-
 ---
 
 <Layout pageTitle="Manuel">
-
-  
-  <header class="bg-gradient-to-b from-blue-300  to-default-bg">
-      <div
-    class="relative w-full h-screen flex flex-col justify-center items-center text-center gap-5 "
-  >
-    <!-- <p class="font-wdx ">
+  <header class="bg-gradient-to-b from-blue-300 to-default-bg">
+    <div
+      class="relative w-full h-screen flex flex-col justify-center items-center text-center gap-5"
+    >
+      <!-- <p class="font-wdx ">
       sic <span class="inline-block w-1 h-1 align-middle bg-gray-50 rounded-full"></span> parvis  <span class="inline-block w-1 h-1 align-middle bg-gray-50 rounded-full"></span> magna
     </p> -->
-    <p class=" text-8xl font-bold">
-      <span class="hi inline-block">Hi,</span>
-      <span class="im"> Im   </span>
-        <span class="name inline-block text-highlight text-glow"> Manuel Dalacan </span>
+      <p class="text-8xl font-bold text-gray-900">
+        <span class="hi inline-block">Hi,</span>
+        <span class="im"> Im </span>
+        <span class="name inline-block text-highlight text-glow">
+          Manuel Dalacan
+        </span>
 
-      <br />
-     <span class="description ">
-       {"a full stack developer".split("").map((char) => (<span       class="inline-block opacity-0 -translate-y-2"
-        >{char === " " ? '\u00A0' : char}</span>))}
-     </span>
-    </p>
-     <div class="subtitle inline-block opacity-0 -translate-y-8 text-md text-secondary-text">
-    <p>
-      As a fullstack developer, I build modern web apps with tools like
-      <br />
-      <span class="text-highlight text-glow">
-        React, Astro.js, Next.js & Tailwind CSS.
-      </span>
-    </p>
-   
-     <div class="flex justify-center pt-4 gap-4">
-       <Button title="Resumé" />
-      <Button title="Contact" />
-     </div>
-    </div>
+        <br />
+        <span class="description">
+          {
+            "a full stack developer"
+              .split("")
+              .map((char) => (
+                <span class="inline-block opacity-0 -translate-y-2">
+                  {char === " " ? "\u00A0" : char}
+                </span>
+              ))
+          }
+        </span>
+      </p>
+      <div
+        class="subtitle inline-block opacity-0 -translate-y-8 text-md text-secondary-text"
+      >
+        <p>
+          As a fullstack developer, I build modern web apps with tools like
+          <br />
+          <span class="text-highlight text-glow">
+            React, Astro.js, Next.js & Tailwind CSS.
+          </span>
+        </p>
+
+        <div class="flex justify-center pt-4 gap-4">
+          <Button title="Resumé" />
+          <Button title="Contact" />
+        </div>
+      </div>
+      <a
+        class="scroll-round absolute bottom-30 flex justify-center items-center rounded-full shadow-2xl w-15 h-15 bg-blue-200 opacity-0"
+        href="#experience"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-arrow-down-icon lucide-arrow-down"
+          ><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg
+        >
+      </a>
     </div>
   </header>
+  <span id="experience"></span>
+
   <main class="max-w-[80ch] mx-5 md:mx-auto my-20">
-  
     <div class="flex flex-col gap-20">
       <section>
         <h2>Experience</h2>
         <HorizontalLine />
-<div class="relative flex flex-col  pb-10 last:pb-0 gap-2">
-<!-- Line -->
-  <span
-    class="absolute w-[2px] left-[.5rem] top-[.5rem] h-full bg-gradient-to-b from-black  to-transparent to-90%"
-  ></span>
+        <div class="relative flex flex-col pb-10 last:pb-0 gap-2">
+          <!-- Line -->
+          <span
+            class="absolute w-[2px] left-[.5rem] top-[.5rem] h-full bg-gradient-to-b from-black to-transparent to-90%"
+          ></span>
           <Experience
             date="Jan - Apr 2025"
             location="Muntinlupa City"
             position="Web Dev Intern"
             company="Advanced World Solutions"
           />
-        
         </div>
       </section>
       <section>
@@ -129,7 +154,7 @@ import "../styles/global.css";
         <HorizontalLine />
         <div>
           <h2>Lets get in touch!</h2>
-          <p>You can reach me at my e-mail. </p>
+          <p>You can reach me at my e-mail.</p>
         </div>
       </section>
     </div>
@@ -137,10 +162,21 @@ import "../styles/global.css";
 </Layout>
 
 <script>
-  import gsap from 'gsap'
+  import gsap from "gsap";
 
-  const timeline = gsap.timeline({defaults: {duration: 1, ease:'power1'}})
-  timeline.from('.hi', {opacity:0}).from('.im', {opacity:0}).from('.name', {opacity:0, y:'-100%', duration:0.5}).to('.description span', {y:0, opacity:1,duration:0.3, stagger:0.05,repeat:0, ease:'power2.out'}).to('.subtitle', {opacity:1, y:0,duration: 1 ,ease:'bounce'})
-
-
+  const timeline = gsap.timeline({ defaults: { duration: 1, ease: "power1" } });
+  timeline
+    .from(".hi", { opacity: 0 })
+    .from(".im", { opacity: 0 })
+    .from(".name", { opacity: 0, y: "-100%", duration: 0.5 })
+    .to(".description span", {
+      y: 0,
+      opacity: 1,
+      duration: 0.3,
+      stagger: 0.05,
+      repeat: 0,
+      ease: "power2.out",
+    })
+    .to(".subtitle", { opacity: 1, y: 0, duration: 1, ease: "bounce" })
+    .to(".scroll-round", { opacity: 1, scale: 1.1 });
 </script>
