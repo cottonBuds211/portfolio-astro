@@ -9,7 +9,7 @@ const { date, title, description, link, img } = Astro.props;
     <h4 class="text-sm">{date}</h4>
     <h3 class="text-4xl font-wdx">{title}</h3>
     <p class="text-secondary">{description}</p>
-    <a class="flex gap-2 cursor-pointer"
+    <a class="flex gap-2 items-center cursor-pointer"
       >{link}
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@ const { date, title, description, link, img } = Astro.props;
   >
     <img
       src={img.src}
-      class="object-cover rounded-lg transition-all duration-300 hover:scale-125 cursor-pointer"
+      class="object-cover rounded-lg transition-all duration-300 hover:scale-110 cursor-pointer"
     />
   </div>
 </div>
