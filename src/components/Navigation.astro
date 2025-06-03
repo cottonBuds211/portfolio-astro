@@ -1,5 +1,12 @@
 ---
-const navLinks = ["Experience", "Projects", "Contact"];
+const navLinks = [
+  {
+    title: "Experience",
+    link: "experience",
+  },
+  { title: "Projects", link: "projects" },
+  { title: "Contact", link: "contacts" },
+];
 ---
 
 <div class="h-full flex items-center justify-between">
@@ -12,11 +19,14 @@ const navLinks = ["Experience", "Projects", "Contact"];
       MD
     </span>
   </div>
-  <div class="hidden md:flex gap-3 ">
+  <div class="hidden md:flex gap-3">
     {
       navLinks.map((link) => (
-        <a class="relative link group hover:cursor-pointer">
-          {link}
+        <a
+          class="relative link group hover:cursor-pointer "
+          href={`#${link.link}`}
+        >
+          {link.title}
           <span class="absolute left-1/2 right-1/2 -bottom-0.5 h-0.5 bg-black/50 transform -translate-x-1/2 transition-all duration-300 group-hover:w-full w-0" />
         </a>
       ))
@@ -67,8 +77,7 @@ const navLinks = ["Experience", "Projects", "Contact"];
 </div>
 
 <script>
-  import gsap from 'gsap'
+  import gsap from "gsap";
 
-  gsap.from('.link', {duration:1, opacity:0, delay:1, stagger:.5})
-
+  gsap.from(".link", { duration: 1, opacity: 0, delay: 1, stagger: 0.5 });
 </script>

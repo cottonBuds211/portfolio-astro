@@ -1,13 +1,13 @@
 ---
 import Button from "../components/Button.astro";
 import Experience from "../components/Experience.astro";
-import HorizontalLine from "../components/HorizontalLine.astro";
 import Project from "../components/Project.astro";
 import Technology from "../components/Technology.astro";
 import { toolStack } from "../data/data";
 import { backEndStack } from "../data/data";
 import { frontEndStack } from "../data/data";
 import Layout from "../layouts/Layout.astro";
+import bantali from "../assets/images/bantali.png";
 import "../styles/global.css";
 ---
 
@@ -19,7 +19,7 @@ import "../styles/global.css";
       <!-- <p class="font-wdx ">
       sic <span class="inline-block w-1 h-1 align-middle bg-gray-50 rounded-full"></span> parvis  <span class="inline-block w-1 h-1 align-middle bg-gray-50 rounded-full"></span> magna
     </p> -->
-      <p class="text-8xl font-bold text-gray-900">
+      <p class="text-8xl font-bold text-white">
         <span class="hi inline-block">Hi,</span>
         <span class="im"> Im </span>
         <span class="name inline-block text-highlight text-glow">
@@ -81,11 +81,11 @@ import "../styles/global.css";
     <div class="flex flex-col gap-20">
       <section>
         <h2>Experience</h2>
-        <HorizontalLine />
+        <!-- <HorizontalLine /> -->
         <div class="relative flex flex-col pb-10 last:pb-0 gap-2">
           <!-- Line -->
           <span
-            class="absolute w-[2px] left-[.5rem] top-[.5rem] h-full bg-gradient-to-b from-black to-transparent to-90%"
+            class="absolute w-[2px] left-[.5rem] top-[.5rem] h-full bg-gradient-to-b from-black to-transparent to-99%"
           ></span>
           <Experience
             date="Jan - Apr 2025"
@@ -95,21 +95,26 @@ import "../styles/global.css";
           />
         </div>
       </section>
+      <span id="projects" class="w-full h-px bg-black/10"></span>
+
       <section>
         <h2>Projects</h2>
-        <HorizontalLine />
+        <!-- <HorizontalLine /> -->
         <div class="relative flex flex-col gap-5">
           <Project
             date="Dec 2024"
             title="OpticalRecords"
             description="A records management, appointment tracking and inventory all in one."
             link="github.com"
+            img={bantali}
           />
         </div>
       </section>
+      <span id="skills" class="w-full h-px bg-black/10"></span>
+
       <section>
         <h2>Tehchnical Knowledge</h2>
-        <HorizontalLine />
+        <!-- <HorizontalLine /> -->
         <div class="flex flex-col gap-4 p-4">
           <h3>Front-End</h3>
           <div class="flex flex-wrap gap-2">
@@ -149,9 +154,11 @@ import "../styles/global.css";
           </div>
         </div>
       </section>
+      <span id="contacts" class="w-full h-px bg-black/10"></span>
+
       <section>
         <h2>Contact</h2>
-        <HorizontalLine />
+        <!-- <HorizontalLine /> -->
         <div>
           <h2>Lets get in touch!</h2>
           <p>You can reach me at my e-mail.</p>
@@ -168,7 +175,12 @@ import "../styles/global.css";
   timeline
     .from(".hi", { opacity: 0 })
     .from(".im", { opacity: 0 })
-    .from(".name", { opacity: 0, y: "-100%", duration: 0.5 })
+    .from(".name", {
+      opacity: 0,
+      y: "-20%",
+      duration: 0.5,
+      ease: "bounce",
+    })
     .to(".description span", {
       y: 0,
       opacity: 1,
@@ -176,7 +188,16 @@ import "../styles/global.css";
       stagger: 0.05,
       repeat: 0,
       ease: "power2.out",
+    });
+
+  const subTimeline = gsap.timeline({ defaults: { duration: 1 } });
+  subTimeline
+    .to(".subtitle", {
+      opacity: 1,
+      y: 0,
+      ease: "bounce",
+      delay: 4,
     })
-    .to(".subtitle", { opacity: 1, y: 0, duration: 1, ease: "bounce" })
-    .to(".scroll-round", { opacity: 1, scale: 1.1 });
+    .to(".scroll-round", { opacity: 1, scale: 1.1, ease: "power1.in" })
+    .from(".scroll-round", { scale: 1, ease: "power1.out", duration: 1 });
 </script>

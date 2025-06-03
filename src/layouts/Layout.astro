@@ -23,7 +23,7 @@ const { pageTitle } = Astro.props;
     x-data="{locked: true}"
     x-init="setTimeout(() => locked = false, 6000)"
     :class="{'overflow-hidden' : locked}"
-    class="font-inter text-gray-950 scroll-smooth"
+    class="font-inter text-gray-950"
   >
     <Nav />
     <slot />
