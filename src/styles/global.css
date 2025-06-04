@@ -11,8 +11,8 @@
 }
 
 @font-face {
-	font-family: 'roboto';
-	src: url('../assets/font/Roboto.ttf') format('truetype');
+	font-family: 'opensans';
+	src: url('../assets/font/OpenSans.ttf') format('truetype');
 }
 
 @theme {
@@ -21,13 +21,13 @@
 
 	--font-inter: 'Inter';
 	--font-wdx: 'wdx';
-	--font-roboto: 'roboto'
+	--font-opensans: 'opensans';
 }
 html {
 	/* background-color:hsl(212, 45%, 94%); */
 	background-color: #f4f3f2;
 	margin: 0;
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 body {

@@ -8,8 +8,8 @@ import Navigation from "./Navigation.astro";
   const update = () => scrolled = window.scrollY > 30;
   update();
   window.addEventListener('scroll', update);"
-  :class="scrolled ? 'backdrop-blur-sm shadow-sm  text-secondary' : 'bg-transparent text-white '"
-  class="fixed w-full top-0 h-16 z-50 transition-all duration-300"
+  :class="scrolled ? 'backdrop-blur-sm shadow-sm  ' : 'bg-transparent  '"
+  class="fixed w-full top-0 h-16 z-50 text-secondary transition-all duration-300"
 >
   <div class="nav relative w-full max-w-[80ch] h-full mx-5 md:mx-auto">
     <Navigation />

@@ -18,11 +18,11 @@ const { pageTitle } = Astro.props;
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script></head
   >
-
-  <body
-    x-data="{locked: true}"
+  <!-- x-data="{locked: true}"
     x-init="setTimeout(() => locked = false, 6000)"
-    :class="{'overflow-hidden' : locked}"
+    :class="{'overflow-hidden' : locked}" -->
+  <body
+  
     class="font-inter text-gray-950"
   >
     <Nav />

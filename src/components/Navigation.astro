@@ -10,15 +10,16 @@ const navLinks = [
 ---
 
 <div class="h-full flex items-center justify-between">
-  <div
+  <a
     class="w-10 h-10 font-bold bg-white rounded-lg flex justify-center items-center shadow-md cursor-pointer hover:scale-120 hover:rotate-10 transition ease-in-out delay-150"
+    href="#top"
   >
     <span
-      class="bg-clip-text text-transparent bg-gradient-to-br from-blue-300 to-blue-500"
+      class="text-gray-800"
     >
       MD
     </span>
-  </div>
+  </a>
   <div class="hidden md:flex gap-3">
     {
       navLinks.map((link) => (

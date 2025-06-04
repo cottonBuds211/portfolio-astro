@@ -13,16 +13,14 @@ import "../styles/global.css";
 
 <Layout pageTitle="Manuel">
   <header
-    class="bg-gradient-to-b from-blue-400 from-0% via-blue-300 via-30% to-default-bg to-90%"
+    id="top"
   >
     <div
       class="relative w-full h-screen flex flex-col justify-center items-center text-center gap-5"
     >
-      <!-- <p class="font-wdx ">
-      sic <span class="inline-block w-1 h-1 align-middle bg-gray-50 rounded-full"></span> parvis  <span class="inline-block w-1 h-1 align-middle bg-gray-50 rounded-full"></span> magna
-    </p> -->
-      <p class="text-8xl font-bold
-        text-default-bg font-roboto">
+    
+      <p class="text-7xl font-bold
+         font-opensans  uppercase">
         <span class="hi inline-block">Hi,</span>
         <span class="im"> Im </span>
         <span class="name inline-block text-highlight text-glow">
@@ -59,7 +57,7 @@ import "../styles/global.css";
         </div>
       </div>
       <a
-        class="scroll-round absolute bottom-30 flex justify-center items-center rounded-full shadow-2xl w-15 h-15 bg-blue-200 opacity-0"
+        class="scroll-round absolute bottom-30 flex justify-center items-center rounded-full shadow-2xl w-15 h-15 bg-white opacity-0"
         href="#about"
       >
         <svg
@@ -84,29 +82,32 @@ import "../styles/global.css";
     <div class="flex flex-col gap-20">
       <section>
         <h2>About Me</h2>
-        <!-- <HorizontalLine /> -->
-        <div class="leading-8 text-gray-500 px-5 space-y-5">
-          <p class="indent-15">
-            Hi, I'm Manuel, a Junior software developer with a strong foundation
+        <div class=" leading-8 text-gray-500 px-5 space-y-5 grid lg:grid-cols-3 gap-5 ">
+          <p >
+            Hi, I'm a Junior software developer with a strong foundation
             in JavaScript, React, Node.js. I enjoy building clean, user-friendly
-            applications and solving real-world problems through code. I’m
+            applications and solving real-world problems through code. 
+          </p>
+          <p>I’m
             particularly interested in full-stack development, frontend
             frameworks, clean UI/UX, scalable backend systems, and I'm always
             eager to learn new technologies and collaborate with others. In the
-            next few years, I hope to grow into a Senior Developer or Technical
+            next few years, </p>
+            <p>
+              I hope to grow into a Senior Developer or Technical
             Lead, helping deliver impactful products while mentoring others and
             continuously improving as a developer.
-          </p>
+            </p>
+          
         </div>
       </section>
       <span id="experience"></span>
       <section>
         <h2>Experience</h2>
-        <!-- <HorizontalLine /> -->
         <div class="relative flex flex-col pb-10 last:pb-0 gap-2">
           <!-- Line -->
           <span
-            class="absolute w-[2px] left-[.5rem] top-[.5rem] h-full bg-gradient-to-b from-black to-transparent to-99%"
+            class="absolute w-[1px] left-[.5rem] top-[.5rem] h-full bg-gradient-to-b from-black to-transparent to-99%"
           ></span>
           <Experience
             date="Jan - Apr 2025"
