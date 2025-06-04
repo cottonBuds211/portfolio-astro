@@ -9,12 +9,19 @@
 	font-family: 'wdx';
 	src: url('../assets/font/WDXLLubrifontTC-Regular.ttf') format('truetype');
 }
+
+@font-face {
+	font-family: 'roboto';
+	src: url('../assets/font/Roboto.ttf') format('truetype');
+}
+
 @theme {
 	--color-secondary: oklch(0.373 0.034 259.733);
 	--color-default-bg: #f4f3f2;
 
 	--font-inter: 'Inter';
 	--font-wdx: 'wdx';
+	--font-roboto: 'roboto'
 }
 html {
 	/* background-color:hsl(212, 45%, 94%); */
