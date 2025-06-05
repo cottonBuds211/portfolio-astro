@@ -3,9 +3,7 @@ import Button from "../components/Button.astro";
 import Experience from "../components/Experience.astro";
 import Project from "../components/Project.astro";
 import Technology from "../components/Technology.astro";
-import { toolStack } from "../data/data";
-import { backEndStack } from "../data/data";
-import { frontEndStack } from "../data/data";
+import { experience, projects, techStack } from "../data/data";
 import Layout from "../layouts/Layout.astro";
 import bantali from "../assets/images/bantali.png";
 import "../styles/global.css";
@@ -100,46 +98,51 @@ import "../styles/global.css";
         </div>
       </section>
       <span id="experience"></span>
-      <section>
-        <h2>Experience</h2>
-        <div class="relative flex flex-col pb-10 last:pb-0 gap-2">
-          <!-- Line -->
-          <span
-            class="absolute w-[1px] left-[.5rem] top-[.5rem] h-full bg-gradient-to-b from-black to-transparent to-99%"
-          ></span>
-          <Experience
-            date="Jan - Apr 2025"
-            location="Muntinlupa City"
-            position="Web Dev Intern"
-            company="Advanced World Solutions"
-          />
-        </div>
+     
+      <section class="grid grid-cols-1 lg:grid-cols-5 gap-10 items-baseline">
+        <h2 class="col-span-1">Experience</h2>
+       <div class="col-span-4  gap-4">
+         {experience.map((exp, index) => 
+            <div class="flex flex-row"> 
+              <span class="text-secondary">0{index+1}</span>
+              <Experience
+                date={exp.date}
+                location={exp.location}
+                position={exp.position}
+                company={exp.company}
+                description={exp.description}
+              />
+              </div>
+
+        )}
+       </div>
       </section>
       <span id="projects" class="w-full h-px bg-black/10"></span>
-
-      <section>
-        <h2>Projects</h2>
-        <!-- <HorizontalLine /> -->
-        <div class="relative flex flex-col gap-5">
-          <Project
-            date="Dec 2024"
-            title="OpticalRecords"
-            description="A records management, appointment tracking and inventory all in one."
-            link="github.com"
-            img={bantali}
-          />
+      <section class="grid grid-cols-1 lg:grid-cols-5 gap-10 items-baseline">
+        <h2 class="col-span-1">Projects</h2>
+        <div class="col-span-4">
+          {projects.map((proj,index) => 
+          <div class="flex flex-row ">
+            <span class="text-secondary">0{index+1}</span>
+            <Project
+              date={proj.date}
+              title={proj.title}
+              description={proj.description}
+              link={proj.link}
+              img={bantali}
+            />
+          </div>
+        )} 
         </div>
       </section>
       <span id="skills" class="w-full h-px bg-black/10"></span>
 
-      <section>
-        <h2>Tehchnical Knowledge</h2>
+      <section class="grid grid-cols-1 lg:grid-cols-5 gap-10 items-baseline">
+        <h2 class="col-span-1">Tech Stack</h2>
         <!-- <HorizontalLine /> -->
-        <div class="flex flex-col gap-4 p-4">
-          <h3>Front-End</h3>
-          <div class="flex flex-wrap gap-2">
+          <div class="col-span-4 flex flex-wrap gap-2">
             {
-              frontEndStack.map((item) => (
+              techStack.map((item) => (
                 <Technology
                   color={item.color}
                   title={item.title}
@@ -148,31 +151,6 @@ import "../styles/global.css";
               ))
             }
           </div>
-          <h3>Back-End</h3>
-          <div class="flex flex-wrap gap-1">
-            {
-              backEndStack.map((item) => (
-                <Technology
-                  color={item.color}
-                  title={item.title}
-                  logo={item.logo}
-                />
-              ))
-            }
-          </div>
-          <h3>Tools</h3>
-          <div class="flex flex-wrap gap-1">
-            {
-              toolStack.map((item) => (
-                <Technology
-                  color={item.color}
-                  title={item.title}
-                  logo={item.logo}
-                />
-              ))
-            }
-          </div>
-        </div>
       </section>
       <span id="contacts" class="w-full h-px bg-black/10"></span>
 
