@@ -3,7 +3,7 @@ import gsap from "gsap";
 export function headerAnimation(){
     const timeline = gsap.timeline({ defaults: { duration: 1, ease: "power1" } });
     timeline
-    .from(".hi", { opacity: 0 })
+    .from(".hi", { opacity: 0,delay:1 })
     .from(".im", { opacity: 0 })
     .from(".name", {
         opacity: 0,
