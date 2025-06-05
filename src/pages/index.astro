@@ -49,8 +49,14 @@ import "../styles/global.css";
           <Button title="Contact" />
         </div>
       </div>
-      <a
-        class="scroll-round absolute bottom-20 lg:bottom-30 flex justify-center items-center rounded-full shadow-2xl w-10 h-10 lg:w-15 lg:h-15 bg-white opacity-0"
+      <a x-data="{scrolled: false}"
+        x-init="
+          const update = () => scrolled = window.scrollY > 0
+          update()
+          window.addEventListener('scroll', update)
+        "
+        :class="scrolled ? 'hidden' : 'absolute duration-150 ease-out' "
+        class="scroll-round  bottom-20 lg:bottom-30 flex justify-center transition  items-center rounded-full shadow-2xl w-12 h-12 lg:w-15 lg:h-15 bg-white opacity-0"
         href="#about"
       >
         <svg
@@ -68,8 +74,8 @@ import "../styles/global.css";
         >
       </a>
     </div>
-  </header>
 
+  </header>
   <span id="about"></span>
   <main class="max-w-[80ch] mx-5 md:mx-auto my-20">
     <div class="flex flex-col gap-20">
