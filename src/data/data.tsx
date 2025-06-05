@@ -15,6 +15,7 @@ import reactRouter from "../assets/logos/react-router.png";
 import astro from "../assets/logos/astro.png";
 import bantali from "../assets/images/bantali.png";
 import alpine from "../assets/logos/alpine.png";
+import portfolio from "../assets/images/portfolio.png"
 
 interface technologyItemProps {
   title: string;
@@ -151,6 +152,6 @@ export const projects: projects[] = [
     title: "Web Portfolio",
     description: "My very own portfolio. Not a template.",
     link: "github.com",
-    img: bantali,
+    img: portfolio,
   },
 ];

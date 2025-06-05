@@ -5,7 +5,6 @@ import Project from "../components/Project.astro";
 import Technology from "../components/Technology.astro";
 import { experience, projects, techStack } from "../data/data";
 import Layout from "../layouts/Layout.astro";
-import bantali from "../assets/images/bantali.png";
 import "../styles/global.css";
 ---
 
@@ -131,7 +130,7 @@ import "../styles/global.css";
                   title={proj.title}
                   description={proj.description}
                   link={proj.link}
-                  img={bantali}
+                  img={proj.img}
                 />
               </div>
             ))
