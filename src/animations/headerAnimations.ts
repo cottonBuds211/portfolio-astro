@@ -38,7 +38,7 @@ export function headerAnimation() {
 	//hide arrow when scrolling
 	function handleScroll() {
 		if (window.scrollY > 0) {
-			gsap.to('.scroll-round', { opacity: 0 })
+			gsap.to('.scroll-round', { opacity: 0, delay: 0.5 })
 		} else {
 			gsap.to('.scroll-round', { opacity: 1 })
 		}

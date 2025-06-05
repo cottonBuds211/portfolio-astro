@@ -128,14 +128,14 @@ export const experience: experience[] = [
 		description:
 			'Responsible for integrating APIs, making pages responsive and more front-end stuff.',
 	},
-	{
-		date: 'Jan - Apr 2025',
-		location: 'Muntinlupa City',
-		position: 'Web Dev Intern',
-		company: 'Advanced World Solutions',
-		description:
-			'Responsible for integration API, making pages responsive.',
-	},
+	// {
+	// 	date: 'Jan - Apr 2025',
+	// 	location: 'Muntinlupa City',
+	// 	position: 'Web Dev Intern',
+	// 	company: 'Advanced World Solutions',
+	// 	description:
+	// 		'Responsible for integration API, making pages responsive.',
+	// },
 ]
 
 export const projects: projects[] = [
