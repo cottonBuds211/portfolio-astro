@@ -12,10 +12,10 @@ import "../styles/global.css";
 <Layout pageTitle="Manuel">
   <header id="top">
     <div
-      class="relative w-full h-screen flex flex-col justify-center items-center text-center gap-5"
+      class="relative w-full h-screen  flex flex-col justify-center items-center text-center gap-5"
     >
-      <p class="text-7xl font-bold
-         font-opensans uppercase">
+      <p class="text-3xl mx-8 lg:text-7xl font-bold
+         font-opensans">
         <span class="hi inline-block">Hi,</span>
         <span class="im"> Im </span>
         <span class="name inline-block text-highlight text-glow">
@@ -23,7 +23,7 @@ import "../styles/global.css";
         </span>
 
         <br />
-        <span class="description">
+        <span class="description font-medium">
           {
             "a full stack developer"
               .split("")
@@ -36,11 +36,10 @@ import "../styles/global.css";
         </span>
       </p>
       <div
-        class="subtitle inline-block opacity-0 -translate-y-8 text-md text-secondary"
+        class="subtitle max-w-[50ch] mx-10 inline-block opacity-0 -translate-y-8 text-md text-secondary"
       >
-        <p>
+        <p class="">
           As a fullstack developer, I build modern web apps with tools like
-          <br />
           <span class="text-highlight text-glow">
             React, Astro.js, Next.js & Tailwind CSS.
           </span>
@@ -52,13 +51,13 @@ import "../styles/global.css";
         </div>
       </div>
       <a
-        class="scroll-round absolute bottom-30 flex justify-center items-center rounded-full shadow-2xl w-15 h-15 bg-white opacity-0"
+        class="scroll-round absolute bottom-10 lg:bottom-30 flex justify-center items-center rounded-full shadow-2xl w-10 h-10 lg:w-15 lg:h-15 bg-white opacity-0"
         href="#about"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
+          width="25"
+          height="25"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -78,7 +77,7 @@ import "../styles/global.css";
       <section>
         <h2>About Me</h2>
         <div
-          class="about-me leading-8 text-gray-500 px-5 space-y-5 grid lg:grid-cols-3 gap-5"
+          class="about-me leading-8 text-gray-500 px-5 space-y-5 grid lg:grid-cols-3 gap-5 indent-8 lg:indent-0"
         >
           <p>
             Hi, I'm a Junior software developer with a strong foundation in
@@ -97,67 +96,71 @@ import "../styles/global.css";
           </p>
         </div>
       </section>
-      <span id="experience"></span>
-     
-      <section class="grid grid-cols-1 lg:grid-cols-5 gap-10 items-baseline">
-        <h2 class="col-span-1">Experience</h2>
-       <div class="col-span-4  gap-4">
-         {experience.map((exp, index) => 
-            <div class="flex flex-row"> 
-              <span class="text-secondary">0{index+1}</span>
-              <Experience
-                date={exp.date}
-                location={exp.location}
-                position={exp.position}
-                company={exp.company}
-                description={exp.description}
-              />
-              </div>
 
-        )}
-       </div>
+      <span id="experience" class="w-full h-px bg-black/10"></span>
+
+      <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
+        <h2 class="col-span-1">Experience</h2>
+        <div class="col-span-4 gap-4">
+          {
+            experience.map((exp, index) => (
+              <div class="flex flex-row">
+                <span class="text-secondary">0{index + 1}</span>
+                <Experience
+                  date={exp.date}
+                  location={exp.location}
+                  position={exp.position}
+                  company={exp.company}
+                  description={exp.description}
+                />
+              </div>
+            ))
+          }
+        </div>
       </section>
       <span id="projects" class="w-full h-px bg-black/10"></span>
-      <section class="grid grid-cols-1 lg:grid-cols-5 gap-10 items-baseline">
+      <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
         <h2 class="col-span-1">Projects</h2>
-        <div class="col-span-4">
-          {projects.map((proj,index) => 
-          <div class="flex flex-row ">
-            <span class="text-secondary">0{index+1}</span>
-            <Project
-              date={proj.date}
-              title={proj.title}
-              description={proj.description}
-              link={proj.link}
-              img={bantali}
-            />
-          </div>
-        )} 
+        <div class="col-span-4 flex flex-col gap-5">
+          {
+            projects.map((proj, index) => (
+              <div class="flex flex-row ">
+                <span class="text-secondary">0{index + 1}</span>
+                <Project
+                  date={proj.date}
+                  title={proj.title}
+                  description={proj.description}
+                  link={proj.link}
+                  img={bantali}
+                />
+              </div>
+            ))
+          }
         </div>
       </section>
       <span id="skills" class="w-full h-px bg-black/10"></span>
 
-      <section class="grid grid-cols-1 lg:grid-cols-5 gap-10 items-baseline">
+      <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
         <h2 class="col-span-1">Tech Stack</h2>
         <!-- <HorizontalLine /> -->
-          <div class="col-span-4 flex flex-wrap gap-2">
-            {
-              techStack.map((item) => (
-                <Technology
-                  color={item.color}
-                  title={item.title}
-                  logo={item.logo}
-                />
-              ))
-            }
-          </div>
+        <div class="col-span-4 flex flex-wrap gap-2">
+          {
+            techStack.map((item) => (
+              <Technology
+                color={item.color}
+                title={item.title}
+                logo={item.logo}
+              />
+            ))
+          }
+        </div>
       </section>
       <span id="contacts" class="w-full h-px bg-black/10"></span>
 
-      <section>
-        <h2>Contact</h2>
+      <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
+        <h2 class="col-span-1">Contact</h2>
         <!-- <HorizontalLine /> -->
-        <div>
+        <div class="col-span-4">
           <h2>Lets get in touch!</h2>
           <p>You can reach me at my e-mail.</p>
         </div>
@@ -167,37 +170,8 @@ import "../styles/global.css";
 </Layout>
 
 <script>
-  import gsap from "gsap";
-
-  const timeline = gsap.timeline({ defaults: { duration: 1, ease: "power1" } });
-  timeline
-    .from(".hi", { opacity: 0 })
-    .from(".im", { opacity: 0 })
-    .from(".name", {
-      opacity: 0,
-      y: "-20%",
-      duration: 0.5,
-      ease: "bounce",
-    })
-    .to(".description span", {
-      y: 0,
-      opacity: 1,
-      duration: 0.3,
-      stagger: 0.05,
-      repeat: 0,
-      ease: "power2.out",
-    });
-
-  const subTimeline = gsap.timeline({ defaults: { duration: 1 } });
-  subTimeline
-    .to(".subtitle", {
-      opacity: 1,
-      y: 0,
-      ease: "bounce",
-      delay: 4,
-    })
-    .to(".scroll-round", { opacity: 1, scale: 1.1, ease: "power1.in" })
-    .from(".scroll-round", { scale: 1, ease: "power1.out", duration: 1 });
-
-    gsap
+  import { navAnimation } from "../animations/navAnimations";
+  import { headerAnimation } from "../animations/headerAnimations";
+  headerAnimation();
+  navAnimation();
 </script>

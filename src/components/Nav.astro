@@ -3,25 +3,18 @@ import Navigation from "./Navigation.astro";
 ---
 
 <nav
-  x-data="{scrolled: false}"
+  x-data="{top: false}"
   x-init="
-  const update = () => scrolled = window.scrollY > 30;
-  update();
-  window.addEventListener('scroll', update);"
-  :class="scrolled ? 'backdrop-blur-sm shadow-sm  ' : 'bg-transparent  '"
-  class="fixed w-full top-0 h-16 z-50 text-secondary transition-all duration-300"
+    const update = () => {
+      top = window.scrollY === 0
+    }
+      update()
+
+      window.addEventListener('scroll', update)"
+  :class="top ? 'bg-transparent' : 'backdrop-blur-sm shadow-sm'"
+  class="nav fixed top-0 w-full h-16 z-50 text-secondary"
 >
-  <div class="nav relative w-full max-w-[80ch] h-full mx-5 md:mx-auto">
+  <div class="relative w-full max-w-[80ch] h-full mx-5 md:mx-auto">
     <Navigation />
   </div>
 </nav>
-
-<script>
-  import gsap from "gsap";
-  gsap.from(".nav", {
-    y: "-100%",
-    duration: 1,
-    ease: "bounce",
-    delay: 4,
-  });
-</script>
