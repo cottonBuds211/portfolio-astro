@@ -49,14 +49,8 @@ import "../styles/global.css";
           <Button title="Contact" />
         </div>
       </div>
-      <a x-data="{scrolled: false}"
-        x-init="
-          const update = () => scrolled = window.scrollY > 0
-          update()
-          window.addEventListener('scroll', update)
-        "
-        :class="scrolled ? 'hidden' : 'absolute duration-150 ease-out' "
-        class="scroll-round  bottom-20 lg:bottom-30 flex justify-center transition  items-center rounded-full shadow-2xl w-12 h-12 lg:w-15 lg:h-15 bg-white opacity-0"
+      <a 
+        class="scroll-round absolute bottom-20 lg:bottom-30 flex justify-center  items-center rounded-full shadow-2xl w-12 h-12 lg:w-16 lg:h-16 bg-white opacity-0"
         href="#about"
       >
         <svg
@@ -80,21 +74,21 @@ import "../styles/global.css";
   <main class="max-w-[80ch] mx-5 md:mx-auto my-20">
     <div class="flex flex-col gap-20">
       <section>
-        <h2>About Me</h2>
+        <h2 class="about-title">About Me</h2>
         <div
           class="about-me leading-8 text-gray-500 px-5 space-y-5 grid lg:grid-cols-3 gap-5 indent-8 lg:indent-0"
         >
-          <p>
+          <p class="about-paragraph-1">
             Hi, I'm a Junior software developer with a strong foundation in
             JavaScript, React, Node.js. I enjoy building clean, user-friendly
             applications and solving real-world problems through code.
           </p>
-          <p>
+          <p class="about-paragraph-2">
             I’m particularly interested in full-stack development, frontend
             frameworks, clean UI/UX, scalable backend systems, and I'm always
             eager to learn new technologies and collaborate with others.
           </p>
-          <p>
+          <p class="about-paragraph-3">
             In the next few years, I hope to grow into a Senior Developer or
             Technical Lead, helping deliver impactful products while mentoring
             others and continuously improving as a developer.
@@ -105,11 +99,11 @@ import "../styles/global.css";
       <span id="experience" class="w-full h-px bg-black/10"></span>
 
       <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
-        <h2 class="col-span-1">Experience</h2>
-        <div class="col-span-4 gap-4">
+        <h2 class="experience-title col-span-1">Experience</h2>
+        <div class="col-span-4 flex flex-col gap-5">
           {
             experience.map((exp, index) => (
-              <div class="flex flex-row">
+              <div class={`experience-card flex flex-row`}>
                 <span class="text-secondary">0{index + 1}</span>
                 <Experience
                   date={exp.date}
@@ -125,11 +119,11 @@ import "../styles/global.css";
       </section>
       <span id="projects" class="w-full h-px bg-black/10"></span>
       <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
-        <h2 class="col-span-1">Projects</h2>
+        <h2 class="project-title col-span-1">Projects</h2>
         <div class="col-span-4 flex flex-col gap-5">
           {
             projects.map((proj, index) => (
-              <div class="flex flex-row ">
+              <div class="project-card flex flex-row ">
                 <span class="text-secondary">0{index + 1}</span>
                 <Project
                   date={proj.date}
@@ -146,16 +140,18 @@ import "../styles/global.css";
       <span id="skills" class="w-full h-px bg-black/10"></span>
 
       <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
-        <h2 class="col-span-1">Tech Stack</h2>
+        <h2 class="tech-title col-span-1">Tech Stack</h2>
         <!-- <HorizontalLine /> -->
         <div class="col-span-4 flex flex-wrap gap-2">
           {
             techStack.map((item) => (
-              <Technology
+              <span class="tech-button">
+                <Technology
                 color={item.color}
                 title={item.title}
                 logo={item.logo}
               />
+              </span>
             ))
           }
         </div>
@@ -177,6 +173,14 @@ import "../styles/global.css";
 <script>
   import { navAnimation } from "../animations/navAnimations";
   import { headerAnimation } from "../animations/headerAnimations";
+import { aboutAnimation } from "../animations/aboutAnimations";
+import { experienceAnimation } from "../animations/experienceAnimations";
+import { projectAnimation } from "../animations/projectAnimations";
+import { techAnimation } from "../animations/techAnimations";
   headerAnimation();
   navAnimation();
+  aboutAnimation()
+  experienceAnimation()
+  projectAnimation()
+  techAnimation()
 </script>
