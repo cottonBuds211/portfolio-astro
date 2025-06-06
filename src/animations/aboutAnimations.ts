@@ -1,8 +1,4 @@
-import gsap from 'gsap'
-
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { gsap } from '../animations/gsapConfig'
 
 export function aboutAnimation() {
 	const tl = gsap.timeline({

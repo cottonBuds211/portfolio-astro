@@ -14,14 +14,21 @@ const { pageTitle } = Astro.props;
     <link rel="icon" type="image/png" href="/logo.png" />
     <title>{pageTitle}</title>
     <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script></head
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer
+    ></script>
+      <script>
+       if ('scrollRestoration' in history) {
+          history.scrollRestoration = 'manual';
+        };
+      </script>
+    </head
   >
 
   <body   
     x-data="{locked: true}"
-    x-init="setTimeout(() => locked = false, 6000)"
+    x-init="
+        setTimeout(() => locked = false, 6000)  
+    "
     :class="{'overflow-hidden' : locked}"
      class="font-inter text-gray-950">
     <Nav />

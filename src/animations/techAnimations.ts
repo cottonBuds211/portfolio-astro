@@ -1,8 +1,4 @@
-import gsap from 'gsap'
-
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { gsap } from '../animations/gsapConfig'
 
 export function techAnimation() {
 	const tl = gsap.timeline({
@@ -17,5 +13,5 @@ export function techAnimation() {
 
 	tl.from('.tech-title', {
 		opacity: 0,
-	}).from('.tech-button', { opacity: 0, x: -50, stagger: 0.1})
+	}).from('.tech-button', { opacity: 0, x: -50, stagger: 0.1 })
 }

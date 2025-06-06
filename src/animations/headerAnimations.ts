@@ -1,5 +1,4 @@
-import gsap from 'gsap'
-
+import { gsap } from '../animations/gsapConfig'
 export function headerAnimation() {
 	const scrollArrow = document.querySelector('.scroll-round')
 	const timeline = gsap.timeline({
@@ -26,7 +25,10 @@ export function headerAnimation() {
 			opacity: 1,
 			y: 0,
 		})
-
+		.from('.scroll-round', {
+			opacity: 0,
+			duration: 0.6,
+		})
 		.to('.scroll-round', {
 			opacity: 1,
 			scale: 1.5,
@@ -34,17 +36,6 @@ export function headerAnimation() {
 			duration: 0.6,
 		})
 		.to('.scroll-round', { scale: 1, ease: 'power2.inOut', duration: 0.4 })
-
-	//hide arrow when scrolling
-	function handleScroll() {
-		if (window.scrollY > 0) {
-			gsap.to('.scroll-round', { opacity: 0, delay: 0.5 })
-		} else {
-			gsap.to('.scroll-round', { opacity: 1 })
-		}
-	}
-
-	window.addEventListener('scroll', handleScroll)
 
 	//hover button
 	scrollArrow?.addEventListener('mouseenter', () =>
