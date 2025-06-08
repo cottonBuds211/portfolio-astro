@@ -1,36 +1,61 @@
 ---
-const {img} = Astro.props
+const { img } = Astro.props;
 ---
-<style>
-   dialog {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
 
-dialog::backdrop {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  background-color: ;
-}
+<style>
+  dialog {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  dialog::backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3); /* optional: light dim */
+  }
 </style>
 
-<div x-data="{open: false}" class="flex-1 w-full border-1 border-gray-200/50 rounded-lg overflow-hidden p-1 bg-gray-500/10 "
+<div
+  x-data="{open: false}"
+  x-init="$watch('open', val => document.body.classList.toggle('overflow-hidden',val ))"
+  class="flex-1 w-full border-1 border-gray-200/50 rounded-lg overflow-hidden bg-gray-500/10"
+>
+  <div
+    @click="open = true; $nextTick(()=>$refs.modal.showModal())"
+    class="rounded-lg"
   >
-    
-<div  @click="open = true; $nextTick(()=>$refs.modal.showModal())" class="rounded-lg "
-    >
     <slot name="trigger" />
   </div>
-    <dialog x-ref="modal" @close="'open = false" @click.outside="$refs.modal.close()" class="backdrop:backdrop-blur-xs rounded-lg p-2">
-        <form method="dialog" >
-            <div class="w-full text-end">
-                <button class="text-secondary p-3 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>   
-            </div> 
-            <slot name="main" />
-        </form>        
-    </dialog>
+  <dialog
+    x-ref="modal"
+    @close="open = false"
+    @click.outside="$refs.modal.close(); open=false"
+    class="backdrop:backdrop-blur-xs lg:rounded-lg p-2 w-full h-full m-0 max-w-none max-h-none lg:h-[90%] lg:w-[70%]"
+  >
+    <form method="dialog">
+      <div class="w-full text-end">
+        <button class="text-secondary p-3 cursor-pointer"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-x-icon lucide-x"
+            ><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
+          ></button
+        >
+      </div>
+      <slot name="main" />
+    </form>
+  </dialog>
 </div>
