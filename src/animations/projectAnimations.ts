@@ -2,10 +2,10 @@ import { gsap } from '../animations/gsapConfig'
 
 export function projectAnimation() {
 	const tl = gsap.timeline({
-		defaults: { duration: 0.5, ease: 'power1.in' },
+		defaults: { duration: 0.3, ease: 'power1.in' },
 		scrollTrigger: {
 			trigger: '.project-title',
-			start: 'top center',
+			start: ' center bottom',
 			toggleActions: 'play none none none',
 			once: true,
 		},

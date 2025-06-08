@@ -1,7 +1,8 @@
 ---
-const { img } = Astro.props;
+
 ---
 
+<!-- TODO: PUT ANIMATION -->
 <style>
   dialog {
     position: fixed;
@@ -23,7 +24,7 @@ const { img } = Astro.props;
 <div
   x-data="{open: false}"
   x-init="$watch('open', val => document.body.classList.toggle('overflow-hidden',val ))"
-  class="flex-1 w-full border-1 border-gray-200/50 rounded-lg overflow-hidden bg-gray-500/10"
+  class="flex-1 w-full rounded-lg overflow-hidden lg:border lg:border-black/10"
 >
   <div
     @click="open = true; $nextTick(()=>$refs.modal.showModal())"
@@ -35,7 +36,7 @@ const { img } = Astro.props;
     x-ref="modal"
     @close="open = false"
     @click.outside="$refs.modal.close(); open=false"
-    class="backdrop:backdrop-blur-xs lg:rounded-lg p-2 w-full h-full m-0 max-w-none max-h-none lg:h-[90%] lg:w-[70%]"
+    class="backdrop:backdrop-blur-xs lg:rounded-lg p-2 w-full h-full m-0 max-w-none max-h-none lg:h-fit lg:w-[70%]"
   >
     <form method="dialog">
       <div class="w-full text-end">

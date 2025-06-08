@@ -1,4 +1,6 @@
 ---
+import Modal from "./Modal.astro";
+
 const navLinks = [
   {
     title: "Experience",
@@ -14,13 +16,9 @@ const navLinks = [
     class="w-10 h-10 font-bold bg-white rounded-lg flex justify-center items-center shadow-md cursor-pointer hover:scale-120 hover:rotate-360 transition ease-linear duration-150"
     href="#top"
   >
-    <span
-      class="text-gray-800"
-    >
-      MD
-    </span>
+    <span class="text-gray-800"> MD </span>
   </a>
-  
+
   <div class="hidden md:flex gap-3">
     {
       navLinks.map((link) => (
@@ -77,7 +75,40 @@ const navLinks = [
     </div>
   </div>
   <div class="flex md:hidden">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu"><path d="M4 12h16"/><path d="M4 18h16"/><path d="M4 6h16"/></svg>
+    <Modal>
+      <div slot="trigger">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-menu-icon lucide-menu"
+          ><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"
+          ></path></svg
+        >
+      </div>
+      <main
+        slot="main"
+        class="flex h-full justify-center items-center text-center"
+      >
+        <div class="flex flex-col">
+          {
+            navLinks.map((link) => (
+              <a
+                @click="$refs.modal.close(); open = false"
+                href={`#${link.link}`}
+              >
+                {link.title}
+              </a>
+            ))
+          }
+        </div>
+      </main>
+    </Modal>
   </div>
 </div>
-
