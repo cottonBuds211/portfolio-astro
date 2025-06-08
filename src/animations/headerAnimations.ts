@@ -31,7 +31,7 @@ export function headerAnimation() {
 		})
 		.to('.scroll-round', {
 			opacity: 1,
-			scale: 1.5,
+			scale: 1.2,
 			ease: 'power2.out',
 			duration: 0.6,
 		})
