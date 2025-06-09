@@ -45,8 +45,12 @@ import "../styles/global.css";
         </p>
 
         <div class="flex justify-center pt-4 gap-4">
-          <Button title="Resumé" />
-          <Button title="Contact" />
+          <Button
+            title="Resumé"
+            link="/resume/ManuelJohnDalacan.pdf"
+            target="_blank"
+          />
+          <Button title="Contact" link="#contacts" />
         </div>
       </div>
       <a
@@ -130,6 +134,7 @@ import "../styles/global.css";
                   description={proj.description}
                   link={proj.link}
                   img={proj.img}
+                  vid={proj.vid}
                 />
               </div>
             ))
@@ -162,7 +167,13 @@ import "../styles/global.css";
         <!-- <HorizontalLine /> -->
         <div class="contact-content col-span-4">
           <h2>Lets get in touch!</h2>
-          <p>You can reach me on my <a>linkedIn</a> or through my e-mail</p>
+          <p>
+            You can reach me on my <a
+              class="text-blue-600"
+              href="https://www.linkedin.com/in/manuel-john-dalacan-80406121b"
+              target="_blank">linkedIn</a
+            > or through my e-mail: dalacan.manuel96@gmail.com
+          </p>
         </div>
       </section>
     </div>
