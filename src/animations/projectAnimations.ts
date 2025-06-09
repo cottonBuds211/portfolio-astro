@@ -5,7 +5,7 @@ export function projectAnimation() {
 		defaults: { duration: 0.3, ease: 'power1.in' },
 		scrollTrigger: {
 			trigger: '.project-title',
-			start: ' top center',
+			start: 'top center',
 			toggleActions: 'play none none none',
 			once: true,
 		},
