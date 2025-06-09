@@ -5,7 +5,7 @@ export function experienceAnimation() {
 		defaults: { duration: 0.5, ease: 'power1.in' },
 		scrollTrigger: {
 			trigger: '.experience-title',
-			start: 'center bottom',
+			start: 'top center',
 			toggleActions: 'play none none none',
 			once: true,
 		},
