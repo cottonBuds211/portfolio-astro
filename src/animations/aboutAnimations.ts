@@ -5,7 +5,7 @@ export function aboutAnimation() {
 		defaults: { duration: 0.5, ease: 'power1.in' },
 		scrollTrigger: {
 			trigger: '.about-title',
-			start: 'center bottom',
+			start: 'top center',
 			toggleActions: 'play none none none',
 			once: true,
 		},
