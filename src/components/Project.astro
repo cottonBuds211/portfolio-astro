@@ -34,7 +34,7 @@ const { date, title, description, link, img } = Astro.props;
   <Modal>
     <div
       slot="trigger"
-      class="relative group transition-all duration-300 hover: cursor-pointer"
+      class="relative group transition-all duration-300 hover: cursor-pointer border border-black/10 rounded-lg"
     >
       <img src={img.src} class="object-cover rounded-lg" />
       <span
