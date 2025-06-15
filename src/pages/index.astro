@@ -74,109 +74,167 @@ import "../styles/global.css";
     </div>
   </header>
   <span id="about"></span>
-  <main class="max-w-[80ch] mx-5 md:mx-auto my-20">
-    <div class="flex flex-col gap-20">
-      <section>
-        <h2 class="about-title">About Me</h2>
-        <div
-          class="about-me leading-8 text-text-secondary px-5 space-y-5 grid lg:grid-cols-3 gap-5 indent-8 lg:indent-0"
-        >
-          <p class="about-paragraph-1">
-            Hi, I'm a Junior software developer with a strong foundation in
-            JavaScript, React, Node.js. I enjoy building clean, user-friendly
-            applications and solving real-world problems through code.
-          </p>
-          <p class="about-paragraph-2">
-            I’m particularly interested in full-stack development, frontend
-            frameworks, clean UI/UX, scalable backend systems, and I'm always
-            eager to learn new technologies and collaborate with others.
-          </p>
-          <p class="about-paragraph-3">
-            In the next few years, I hope to grow into a Senior Developer or
-            Technical Lead, helping deliver impactful products while mentoring
-            others and continuously improving as a developer.
-          </p>
-        </div>
-      </section>
+  <main class="max-w-[80ch] mx-5 md:mx-auto my-20 flex flex-col gap-20">
+    <section>
+      <h2 class="about-title">About Me</h2>
+      <div
+        class="about-me leading-8 text-text-secondary px-5 space-y-5 grid lg:grid-cols-3 gap-5 indent-8 lg:indent-0"
+      >
+        <p class="about-paragraph-1">
+          Hi, I'm a Junior software developer with a strong foundation in
+          JavaScript, React, Node.js. I enjoy building clean, user-friendly
+          applications and solving real-world problems through code.
+        </p>
+        <p class="about-paragraph-2">
+          I’m particularly interested in full-stack development, frontend
+          frameworks, clean UI/UX, scalable backend systems, and I'm always
+          eager to learn new technologies and collaborate with others.
+        </p>
+        <p class="about-paragraph-3">
+          In the next few years, I hope to grow into a Senior Developer or
+          Technical Lead, helping deliver impactful products while mentoring
+          others and continuously improving as a developer.
+        </p>
+      </div>
+    </section>
 
-      <span id="experience" class="w-full h-px bg-black/10"></span>
+    <span id="experience" class="w-full h-px bg-black/10"></span>
 
-      <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
-        <h2 class="experience-title col-span-1">Experience</h2>
-        <div class="col-span-4 flex flex-col gap-5">
-          {
-            experience.map((exp, index) => (
-              <div class={`experience-card flex flex-row`}>
-                <span class="text-secondary">0{index + 1}</span>
-                <Experience
-                  date={exp.date}
-                  location={exp.location}
-                  position={exp.position}
-                  company={exp.company}
-                  description={exp.description}
-                />
-              </div>
-            ))
-          }
-        </div>
-      </section>
-      <span id="projects" class="w-full h-px bg-black/10"></span>
-      <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
-        <h2 class="project-title col-span-1">Projects</h2>
-        <div class="col-span-4 flex flex-col gap-5">
-          {
-            projects.map((proj, index) => (
-              <div class="project-card flex flex-row ">
-                <span class="text-secondary">0{index + 1}</span>
-                <Project
-                  date={proj.date}
-                  title={proj.title}
-                  description={proj.description}
-                  link={proj.link}
-                  img={proj.img}
-                  vid={proj.vid}
-                />
-              </div>
-            ))
-          }
-        </div>
-      </section>
-      <span id="skills" class="w-full h-px bg-black/10"></span>
+    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
+      <h2 class="experience-title col-span-1">Experience</h2>
+      <div class="col-span-4 flex flex-col gap-5">
+        {
+          experience.map((exp, index) => (
+            <div class={`experience-card flex flex-row`}>
+              <span class="text-secondary">0{index + 1}</span>
+              <Experience
+                date={exp.date}
+                location={exp.location}
+                position={exp.position}
+                company={exp.company}
+                description={exp.description}
+              />
+            </div>
+          ))
+        }
+      </div>
+    </section>
+    <span id="projects" class="w-full h-px bg-black/10"></span>
+    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
+      <h2 class="project-title col-span-1">Projects</h2>
+      <div class="col-span-4 flex flex-col gap-5">
+        {
+          projects.map((proj, index) => (
+            <div class="project-card flex flex-row ">
+              <span class="text-secondary">0{index + 1}</span>
+              <Project
+                date={proj.date}
+                title={proj.title}
+                description={proj.description}
+                link={proj.link}
+                img={proj.img}
+                vid={proj.vid}
+              />
+            </div>
+          ))
+        }
+      </div>
+    </section>
+    <span id="skills" class="w-full h-px bg-black/10"></span>
 
-      <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
-        <h2 class="tech-title col-span-1">Tech Stack</h2>
-        <!-- <HorizontalLine /> -->
-        <div class="col-span-4 flex flex-wrap gap-2">
-          {
-            techStack.map((item) => (
-              <span class="tech-button">
-                <Technology
-                  color={item.color}
-                  title={item.title}
-                  logo={item.logo}
-                />
-              </span>
-            ))
-          }
-        </div>
-      </section>
-      <span id="contacts" class="w-full h-px bg-black/10"></span>
+    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
+      <h2 class="tech-title col-span-1">Tech Stack</h2>
+      <!-- <HorizontalLine /> -->
+      <div class="col-span-4 flex flex-wrap gap-2">
+        {
+          techStack.map((item) => (
+            <span class="tech-button">
+              <Technology
+                color={item.color}
+                title={item.title}
+                logo={item.logo}
+              />
+            </span>
+          ))
+        }
+      </div>
+    </section>
+    <span id="contacts" class="w-full h-px bg-black/10"></span>
 
-      <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
-        <h2 class="contact-title col-span-1">Contact</h2>
-        <!-- <HorizontalLine /> -->
-        <div class="contact-content col-span-4">
-          <h2>Lets get in touch!</h2>
-          <p>
-            You can reach me on my <a
-              class="text-blue-600"
-              href="https://www.linkedin.com/in/manuel-john-dalacan-80406121b"
-              target="_blank">linkedIn</a
-            > or through my e-mail: dalacan.manuel96@gmail.com
-          </p>
+    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
+      <h2 class="contact-title col-span-1">Contact</h2>
+      <div class="contact-content col-span-4">
+        <h2>Lets get in touch!</h2>
+        <div class="hidden md:flex gap-2">
+          <a href="https://github.com/cottonBuds211" target="_blank">
+            <div
+              class="flex justify-center items-center border-1 p-2 border-black/20 rounded-md hover:bg-gray-100/70 cursor-pointer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-github-icon lucide-github"
+                ><path
+                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                ></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg
+              >
+            </div>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/manuel-john-dalacan-80406121b"
+            target="_blank"
+          >
+            <div
+              class="flex justify-center items-center border-1 p-2 border-black/20 rounded-md hover:bg-gray-100/70 cursor-pointer"
+            >
+              <!-- <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-sun-icon lucide-sun"
+                ><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path
+                  d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path
+                  d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path
+                  d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path
+                  d="m19.07 4.93-1.41 1.41"></path></svg
+              > -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-linkedin-icon lucide-linkedin"
+                ><path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                ></path><rect width="4" height="12" x="2" y="9"></rect><circle
+                  cx="4"
+                  cy="4"
+                  r="2"></circle></svg
+              >
+            </div>
+          </a>
         </div>
-      </section>
-    </div>
+        <p>You can reach me on my e-mail: dalacan.manuel96@gmail.com</p>
+      </div>
+    </section>
   </main>
 </Layout>
 
