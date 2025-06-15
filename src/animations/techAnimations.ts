@@ -5,7 +5,7 @@ export function techAnimation() {
 		defaults: { duration: 0.4, ease: 'power1.in' },
 		scrollTrigger: {
 			trigger: '.tech-title',
-			start: 'center bottom ',
+			start: 'top center ',
 			toggleActions: 'play none none none',
 			once: true,
 		},
