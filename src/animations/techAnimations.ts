@@ -2,7 +2,7 @@ import { gsap } from '../animations/gsapConfig'
 
 export function techAnimation() {
 	const tl = gsap.timeline({
-		defaults: { duration: 0.4, ease: 'power1.in' },
+		defaults: { duration: 0.2, ease: 'power1.in' },
 		scrollTrigger: {
 			trigger: '.tech-title',
 			start: 'top center ',
