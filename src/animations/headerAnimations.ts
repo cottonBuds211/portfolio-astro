@@ -2,7 +2,7 @@ import { gsap } from '../animations/gsapConfig'
 export function headerAnimation() {
 	const scrollArrow = document.querySelector('.scroll-round')
 	const timeline = gsap.timeline({
-		defaults: { duration: 1, ease: 'power1' },
+		defaults: { duration: .3, ease: 'power1' },
 	})
 	timeline
 		.from('.hi', { opacity: 0, delay: 1 })

@@ -2,7 +2,7 @@ import { gsap } from '../animations/gsapConfig'
 
 export function experienceAnimation() {
 	const tl = gsap.timeline({
-		defaults: { duration: 0.5, ease: 'power1.in' },
+		defaults: { duration: 0.3, ease: 'power1.in' },
 		scrollTrigger: {
 			trigger: '.experience-title',
 			start: 'top center',
