@@ -39,7 +39,7 @@ const { date, title, description, link, img, vid } = Astro.props;
       slot="trigger"
       class="relative group transition-all duration-300 hover:cursor-pointer shadow-2xl rounded-lg"
     >
-      <img src={img.src} class="object-cover rounded-lg" />
+      <img src={img.src} class="object-cover rounded-lg" loading="lazy" />
       <span
         class="absolute inset-0 flex justify-center items-center text-white bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-200 ease-in"
         ><svg
