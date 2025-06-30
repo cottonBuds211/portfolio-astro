@@ -5,7 +5,7 @@ const { date, location, position, company,description } = Astro.props;
 <div class="relative flex flex-col pl-8 pb-5 last:pb-0 gap-2 leading-8">
     <p class="text-sm text-secondary">{date} </p>
     <div>
-      <h3 class="text-2xl">{position} <span class="text-sm align-middle">@</span> {company}</h3>
+      <h6><strong>{position} <span class="align-middle">@</span> {company}</strong></h6>
 
       <p class="text-text-secondary">{description}</p>
     </div>

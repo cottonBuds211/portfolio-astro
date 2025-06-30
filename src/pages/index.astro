@@ -10,42 +10,40 @@ import "../styles/global.css";
 ---
 
 <Layout pageTitle="Manuel">
-  <header id="top">
+  <header id="top" class="flex justify-center">
     <div
-      class="relative w-full h-screen flex flex-col justify-center items-center text-center gap-5"
+      class="relative w-full max-w-[80ch] h-screen flex flex-col justify-center  mx-3 md:mx-0"
     >
-      <p class="text-4xl mx-2 lg:text-7xl font-semibold
-         font-opensans">
-        <span class="hi inline-block">Hi,</span>
+      <h1 class="text-h1 font-semibold leading-16">
+        <span class="hi">Hi,</span>
         <span class="im"> Im </span>
-        <span class="name inline-block text-highlight text-glow">
+        <span class="name ">
           Manuel Dalacan
         </span>
-
         <br />
-        <span class="description font-light">
+        <span class="description">
           {
             "a full stack developer"
               .split("")
               .map((char) => (
-                <span class="inline-block opacity-0 -translate-y-2">
+                <span class="inline-block opacity-0 p-0 m-0 align-top -translate-y-2">
                   {char === " " ? "\u00A0" : char}
                 </span>
               ))
           }
         </span>
-      </p>
+      </h1>
       <div
-        class="subtitle max-w-[50ch] mx-10 inline-block opacity-0 -translate-y-8 text-md text-text-secondary"
+        class="subtitle inline-block max-w-[40ch] opacity-0 text-text-secondary py-6"
       >
         <p>
           As a fullstack developer, I build modern web apps with tools like
-          <span class="text-highlight text-glow">
+          <span class="text-glow">
             React, Astro.js, Next.js & Tailwind CSS.
           </span>
         </p>
 
-        <div class="flex justify-center pt-4 gap-4">
+        <div class="flex pt-4 gap-4">
           <Button
             title="Resumé"
             type="primary"
@@ -55,6 +53,7 @@ import "../styles/global.css";
           <Button title="Contact" link="#contacts" />
         </div>
       </div>
+     <div class="flex justify-center"> 
       <a
         class="scroll-round absolute bottom-20 lg:bottom-30 flex justify-center items-center rounded-full shadow-2xl w-12 h-12 lg:w-16 lg:h-16 bg-white opacity-0"
         href="#about"
@@ -74,13 +73,16 @@ import "../styles/global.css";
         >
       </a>
     </div>
+
+    
+    </div>
   </header>
   <span id="about"></span>
-  <main class="max-w-[80ch] mx-5 md:mx-auto my-20 flex flex-col gap-20">
+  <main class="max-w-[80ch] mx-5 md:mx-auto my-20 flex flex-col  gap-20">
     <section>
-      <h2 class="about-title">About Me</h2>
+      <h5 class="about-title text-h5 pb-10">About Me</h5>
       <div
-        class="about-me leading-8 text-text-secondary px-5 space-y-5 grid lg:grid-cols-3 gap-5 indent-8 lg:indent-0"
+        class="about-me leading-8 text-text-secondary px-5 grid lg:grid-cols-3 gap-5 indent-8 lg:indent-0"
       >
         <p class="about-paragraph-1">
           Hi, I'm a Junior software developer with a strong foundation in
@@ -99,9 +101,11 @@ import "../styles/global.css";
         </p>
       </div>
     </section>
+
     <span id="experience" class="w-full h-px bg-black/10"></span>
-    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
-      <h2 class="experience-title col-span-1">Experience</h2>
+
+    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
+      <h5 class="experience-title col-span-1 text-h5 ">Experience</h5>
       <div class="col-span-4 flex flex-col gap-5">
         {
           experience.map((exp, index) => (
@@ -120,9 +124,9 @@ import "../styles/global.css";
       </div>
     </section>
     <span id="projects" class="w-full h-px bg-black/10"></span>
-    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
-      <h2 class="project-title col-span-1">Projects</h2>
-      <div class="col-span-4 flex flex-col gap-5">
+    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
+      <h5 class="project-title col-span-1 text-h5 ">Projects</h5>
+      <div class="col-span-4 flex flex-col gap-5 ">
         {
           projects.map((proj, index) => (
             <div class="project-card flex flex-row ">
@@ -141,8 +145,8 @@ import "../styles/global.css";
       </div>
     </section>
     <span id="skills" class="w-full h-px bg-black/10"></span>
-    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
-      <h2 class="tech-title col-span-1">Tech Stack</h2>
+    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
+      <h5 class="tech-title col-span-1 text-h5 ">Technology</h5>
       <!-- <HorizontalLine /> -->
       <div class="col-span-4 flex flex-wrap gap-2">
         {
@@ -159,14 +163,14 @@ import "../styles/global.css";
       </div>
     </section>
     <span id="contacts" class="w-full h-px bg-black/10"></span>
-    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-10 items-baseline">
-      <h2 class="contact-title col-span-1">Contact</h2>
+    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
+      <h5 class="contact-title col-span-1 text-h5 ">Contact</h5>
       <div class="contact-content col-span-4">
-        <h2>Lets get in touch!</h2>
+        <p>You can reach me on my e-mail: dalacan.manuel96@gmail.com</p>
         <div class="hidden md:flex gap-2">
           <a href="https://github.com/cottonBuds211" target="_blank">
             <div
-              class="flex justify-center items-center border-1 p-2 border-black/20 rounded-md hover:bg-gray-100/70 cursor-pointer"
+              class="flex justify-center items-center border-1 p-2 border-black/20  hover:bg-gray-100/70 cursor-pointer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -190,7 +194,7 @@ import "../styles/global.css";
             target="_blank"
           >
             <div
-              class="flex justify-center items-center border-1 p-2 border-black/20 rounded-md hover:bg-gray-100/70 cursor-pointer"
+              class="flex justify-center items-center p-2 border-1 border-black/20 bg-gray-100/70 cursor-pointer"
             >
               <!-- <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -230,7 +234,6 @@ import "../styles/global.css";
             </div>
           </a>
         </div>
-        <p>You can reach me on my e-mail: dalacan.manuel96@gmail.com</p>
       </div>
     </section>
   </main>
@@ -251,4 +254,7 @@ import "../styles/global.css";
   projectAnimation();
   techAnimation();
   contactAnimation();
+
+
+
 </script>
