@@ -21,7 +21,8 @@
 	font-family: 'Playfair';
 	src: url('../assets/font/PlayFair.ttf') format('truetype');
 	font-weight: 300;
-	font-style: light;
+	font-style: normal;
+
 }
 
 @font-face {
@@ -34,13 +35,14 @@
 	font-family: 'Inter';
 	src: url('../assets/font/Inter.ttf') format('truetype');
 	font-weight: 600;
-	font-style: semibold;
+	font-style: normal;
+
 }
 @font-face {
 	font-family: 'Inter';
 	src: url('../assets/font/Inter.ttf') format('truetype');
 	font-weight: 300;
-	font-style: light;
+	font-style: normal;
 }
 
 @theme {
@@ -67,6 +69,7 @@ html {
 	background-color: #f4f3f2;
 	margin: 0;
 	scroll-behavior: smooth;
+	/* font-size: 14px; */
 }
 
 body {

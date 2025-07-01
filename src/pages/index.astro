@@ -6,20 +6,17 @@ import Technology from "../components/Technology.astro";
 import { experience, projects, techStack } from "../data/data";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
-
 ---
 
 <Layout pageTitle="Manuel">
   <header id="top" class="flex justify-center">
     <div
-      class="relative w-full max-w-[80ch] h-screen flex flex-col justify-center  mx-3 md:mx-0"
+      class="relative w-full max-w-[80ch] h-screen flex flex-col justify-center mx-3 md:mx-0"
     >
       <h1 class="text-h1 font-semibold leading-16">
         <span class="hi">Hi,</span>
         <span class="im"> Im </span>
-        <span class="name ">
-          Manuel Dalacan
-        </span>
+        <span class="name"> Manuel Dalacan </span>
         <br />
         <span class="description">
           {
@@ -34,7 +31,7 @@ import "../styles/global.css";
         </span>
       </h1>
       <div
-        class="subtitle inline-block max-w-[40ch] opacity-0 text-text-secondary py-6"
+        class="subtitle flex flex-col gap-4 max-w-[40ch] opacity-0 text-text-secondary mt-8"
       >
         <p>
           As a fullstack developer, I build modern web apps with tools like
@@ -53,36 +50,34 @@ import "../styles/global.css";
           <Button title="Contact" link="#contacts" />
         </div>
       </div>
-     <div class="flex justify-center"> 
-      <a
-        class="scroll-round absolute bottom-20 lg:bottom-30 flex justify-center items-center rounded-full shadow-2xl w-12 h-12 lg:w-16 lg:h-16 bg-white opacity-0"
-        href="#about"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="25"
-          height="25"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-arrow-down-icon lucide-arrow-down"
-          ><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg
+      <div class="flex justify-center">
+        <a
+          class="scroll-round absolute bottom-20 lg:bottom-30 flex justify-center items-center w-12 h-12 opacity-0 border-1 border-black/25 rounded-full bg-white shadow-2xl"
+          href="#about"
         >
-      </a>
-    </div>
-
-    
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-arrow-down-icon lucide-arrow-down"
+            ><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg
+          >
+        </a>
+      </div>
     </div>
   </header>
   <span id="about"></span>
-  <main class="max-w-[80ch] mx-5 md:mx-auto my-20 flex flex-col  gap-20">
+  <main class="max-w-[80ch] mx-5 md:mx-auto my-20 flex flex-col gap-20">
     <section>
-      <h5 class="about-title text-h5 pb-10">About Me</h5>
+      <h5 class="about-title text-h6 pb-10 font-semibold uppercase">About Me</h5>
       <div
-        class="about-me leading-8 text-text-secondary px-5 grid lg:grid-cols-3 gap-5 indent-8 lg:indent-0"
+        class="about-me text-text-secondary px-5 grid lg:grid-cols-3 gap-5 indent-8 lg:indent-0"
       >
         <p class="about-paragraph-1">
           Hi, I'm a Junior software developer with a strong foundation in
@@ -105,12 +100,12 @@ import "../styles/global.css";
     <span id="experience" class="w-full h-px bg-black/10"></span>
 
     <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
-      <h5 class="experience-title col-span-1 text-h5 ">Experience</h5>
+      <h5 class="experience-title col-span-1 text-h6 font-semibold uppercase">Experience</h5>
       <div class="col-span-4 flex flex-col gap-5">
         {
           experience.map((exp, index) => (
-            <div class={`experience-card flex flex-row`}>
-              <span class="text-secondary">0{index + 1}</span>
+            <div class={`experience-card flex flex-row items-baseline`}>
+              <span class="text-secondary/70 text-p">0{index + 1}</span>
               <Experience
                 date={exp.date}
                 location={exp.location}
@@ -125,12 +120,12 @@ import "../styles/global.css";
     </section>
     <span id="projects" class="w-full h-px bg-black/10"></span>
     <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
-      <h5 class="project-title col-span-1 text-h5 ">Projects</h5>
-      <div class="col-span-4 flex flex-col gap-5 ">
+      <h5 class="project-title col-span-1 text-h6 uppercase font-semibold">Projects</h5>
+      <div class="col-span-4 flex flex-col gap-5">
         {
           projects.map((proj, index) => (
-            <div class="project-card flex flex-row ">
-              <span class="text-secondary">0{index + 1}</span>
+            <div class="project-card flex flex-row items-baseline">
+              <span class="text-secondary/70 text-p">0{index + 1}</span>
               <Project
                 date={proj.date}
                 title={proj.title}
@@ -146,7 +141,7 @@ import "../styles/global.css";
     </section>
     <span id="skills" class="w-full h-px bg-black/10"></span>
     <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
-      <h5 class="tech-title col-span-1 text-h5 ">Technology</h5>
+      <h5 class="tech-title col-span-1 text-h6 font-semibold uppercase">Technology</h5>
       <!-- <HorizontalLine /> -->
       <div class="col-span-4 flex flex-wrap gap-2">
         {
@@ -164,13 +159,13 @@ import "../styles/global.css";
     </section>
     <span id="contacts" class="w-full h-px bg-black/10"></span>
     <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
-      <h5 class="contact-title col-span-1 text-h5 ">Contact</h5>
+      <h5 class="contact-title col-span-1 text-h6 font-semibold uppercase">Contact</h5>
       <div class="contact-content col-span-4">
         <p>You can reach me on my e-mail: dalacan.manuel96@gmail.com</p>
         <div class="hidden md:flex gap-2">
           <a href="https://github.com/cottonBuds211" target="_blank">
             <div
-              class="flex justify-center items-center border-1 p-2 border-black/20  hover:bg-gray-100/70 cursor-pointer"
+              class="flex justify-center items-center border-1 p-2 border-black/20 hover:bg-gray-100/70 cursor-pointer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -242,19 +237,10 @@ import "../styles/global.css";
 <script>
   import { navAnimation } from "../animations/navAnimations";
   import { headerAnimation } from "../animations/headerAnimations";
-  import { aboutAnimation } from "../animations/aboutAnimations";
-  import { experienceAnimation } from "../animations/experienceAnimations";
-  import { projectAnimation } from "../animations/projectAnimations";
-  import { techAnimation } from "../animations/techAnimations";
-  import { contactAnimation } from "../animations/contactAnimations";
+  import { animateMain } from "../animations/mainAnimation";
+  
   headerAnimation();
   navAnimation();
-  aboutAnimation();
-  experienceAnimation();
-  projectAnimation();
-  techAnimation();
-  contactAnimation();
-
-
+  animateMain();
 
 </script>

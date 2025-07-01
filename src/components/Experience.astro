@@ -1,12 +1,16 @@
 ---
-const { date, location, position, company,description } = Astro.props;
+const { date, location, position, company, description } = Astro.props;
 ---
 
-<div class="relative flex flex-col pl-8 pb-5 last:pb-0 gap-2 leading-8">
-    <p class="text-sm text-secondary">{date} </p>
-    <div>
-      <h6><strong>{position} <span class="align-middle">@</span> {company}</strong></h6>
+<div class="relative flex flex-col pl-4 pb-5 last:pb-0 gap-2">
+  <div>
+    <h6 class="text-h6">
+      {position}
+      <span class="align-middle">@</span>
+      {company}
+    </h6>
+    <p class="text-text-secondary">{date}</p>
+  </div>
 
-      <p class="text-text-secondary">{description}</p>
-    </div>
+  <p class="text-text-secondary">{description}</p>
 </div>
