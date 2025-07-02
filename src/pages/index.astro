@@ -15,7 +15,7 @@ import "../styles/global.css";
     <div
       class="relative w-full max-w-[80ch] h-screen flex flex-col justify-center mx-3 md:mx-0"
     >
-      <h1 class="text-h1 font-semibold leading-16">
+      <h1 class="text-h2 md:text-h1 font-semibold leading-16">
         <span class="hi">Hi,</span>
         <span class="im"> Im </span>
         <span class="name"> Manuel Dalacan </span>
@@ -75,7 +75,7 @@ import "../styles/global.css";
     </div>
   </header>
   <span id="about"></span>
-  <main class="max-w-[80ch] mx-5 md:mx-auto my-20 flex flex-col gap-20">
+  <main class="max-w-[80ch] mx-4 md:mx-auto my-20 flex flex-col gap-20">
     <section>
       <h5 class="about-title text-h6 pb-10 font-semibold uppercase">About Me</h5>
       <div
@@ -102,7 +102,7 @@ import "../styles/global.css";
     <span id="experience" class="w-full h-px bg-black/10"></span>
 
     <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
-      <h5 class="experience-title col-span-1 text-h6 font-semibold uppercase">Experience</h5>
+      <h5 class="experience-title col-span-1 text-h6 font-semibold pb-10 uppercase">Experience</h5>
       <div class="col-span-4 flex flex-col gap-5">
         {
           experience.map((exp, index) => (
@@ -122,7 +122,7 @@ import "../styles/global.css";
     </section>
     <span id="projects" class="w-full h-px bg-black/10"></span>
     <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
-      <h5 class="project-title col-span-1 text-h6 uppercase font-semibold">Projects</h5>
+      <h5 class="project-title col-span-1 text-h6 uppercase font-semibold pb-10">Projects</h5>
       <div class="col-span-4 flex flex-col gap-5">
         {
           projects.map((proj, index) => (
@@ -143,7 +143,7 @@ import "../styles/global.css";
     </section>
     <span id="skills" class="w-full h-px bg-black/10"></span>
     <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
-      <h5 class="tech-title col-span-1 text-h6 font-semibold uppercase">Technology</h5>
+      <h5 class="tech-title col-span-1 text-h6 font-semibold uppercase pb-10">Technology</h5>
       <!-- <HorizontalLine /> -->
       <article class="col-span-4 flex flex-wrap gap-2">
         {
@@ -161,7 +161,7 @@ import "../styles/global.css";
     </section>
     <span id="contacts" class="w-full h-px bg-black/10"></span>
     <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
-      <h5 class="contact-title col-span-1 text-h6 font-semibold uppercase">Contact</h5>
+      <h5 class="contact-title col-span-1 text-h6 font-semibold uppercase pb-10">Contact</h5>
       <article class="contact-content col-span-4">
         <p class="text-h6">Let's talk!</p>
         <p class="text-text-secondary">You can reach me on my e-mail: dalacan.manuel96@gmail.com</p>
