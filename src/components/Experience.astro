@@ -1,16 +1,19 @@
 ---
-const { date, location, position, company, description } = Astro.props;
+const { date, position, company, description } = Astro.props;
 ---
 
-<div class="relative flex flex-col pl-4 pb-5 last:pb-0 gap-2">
-  <div>
+<article class="relative flex flex-col pl-4 pb-5 last:pb-0 gap-2">
+  <header>
     <h6 class="text-h6">
-      {position}
-      <span class="align-middle">@</span>
-      {company}
+      {position} @ {company}
     </h6>
     <p class="text-text-secondary">{date}</p>
-  </div>
+  </header>
 
-  <p class="text-text-secondary">{description}</p>
-</div>
+  {Array.isArray(description) ? (
+    <ul class="list-disc pl-4 text-text-secondary space-y-1">
+      {description.map(item => <li>{item}</li>)}
+    </ul>
+  ) : (  <p class="text-text-secondary">{description}</p>
+)}
+</article>

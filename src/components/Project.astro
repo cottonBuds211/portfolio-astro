@@ -1,5 +1,8 @@
 ---
+import EyeIcon from "./EyeIcon.astro";
+import LinkIcon from "./LinkIcon.astro";
 import Modal from "./Modal.astro";
+import Image from "astro/components/Image.astro";
 
 const { date, title, description, link, img, vid } = Astro.props;
 ---
@@ -7,70 +10,44 @@ const { date, title, description, link, img, vid } = Astro.props;
 <div
   class="flex flex-col lg:flex-row gap-4 justify-between  pl-4 transition-all ease-in duration-200 cursor-default"
 >
-  <div class="flex flex-1 flex-col gap-2">
-    <div>
+  <article class="flex flex-1 flex-col gap-2">
+    <header>
       <h6 class="text-h6">{title}</h6>
       <p class="text-text-secondary">{date}</p>
-    </div>
+    </header>
     <p class="text-text-secondary">{description}</p>
     <a
-      class="flex gap-2 items-center cursor-pointer text-text-primary"
+      class="flex gap-2 items-center cursor-pointer text-text-primary "
       href={link}
       target="_blank"
-      >github.com
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-external-link-icon lucide-external-link"
-        ><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
-          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-        ></path></svg
+      rel="noopener noreferrer"
       >
+      <span class="hover:border-b hover:border-dotted hover:border-text-secondary">{new URL(link).hostname}</span>
+      <LinkIcon class="h-4 w-4" aria-hidden="true" focusable="false"/>
     </a>
-  </div>
+  </article>
 
   <Modal>
     <div
       slot="trigger"
       class="relative group transition-all duration-300 hover:cursor-pointer shadow-2xl"
     >
-      <img src={img.src} class="object-cover" />
-      <!-- EYE ICON -->
+      <Image src={img} alt="" class="object-cover" format="png"/>
       <span
         class="absolute inset-0 flex justify-center items-center text-white bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-200 ease-in"
-        ><svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-eye-icon lucide-eye"
-          ><path
-            d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
-          ></path><circle cx="12" cy="12" r="3"></circle></svg
-        ></span
-      >
+        >
+       <EyeIcon class="h-4 w-4" aria-hidden="true" focusable="false" />
+      </span>
     </div>
-    <main slot="main" class="w-full h-full p-3 lg:p-10 lg:pt-0">
+    <section slot="main" class="w-full h-full p-3 lg:p-10 lg:pt-0">
       <h4 class="text-text-primary">{title}</h4>
       <p class="text-text-secondary">{description}</p>
       <hr class="my-2 text-black/10" />
 
-      <video autoplay muted loop playsinline width="100%">
+      <video autoplay muted loop playsinline width="100%" aria-label=`Video demo of ${title}`>
         <source src={vid} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-    </main>
+    </sectoin>
   </Modal>
 </div>
