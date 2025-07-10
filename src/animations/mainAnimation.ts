@@ -10,11 +10,7 @@ export function animateMain() {
 			toggleActions: 'play none none none',
 			once: true,
 		},
-		opacity: 0,
-		y: 50,
-		duration: .5,
-		ease: 'power1.out',
-		stagger: 0.3
+	
 	})
 
 }

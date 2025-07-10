@@ -1,8 +1,7 @@
 import { gsap } from '../animations/gsapConfig'
 export function headerAnimation() {
-	const scrollArrow = document.querySelector('.scroll-round')
 	const timeline = gsap.timeline({
-		defaults: { duration: .3, ease: 'power1' },
+		defaults: { duration: .5, ease: 'power1' },
 	})
 	timeline
 		.from('.hi', { opacity: 0, delay: 1 })
@@ -24,24 +23,12 @@ export function headerAnimation() {
 		.to('.subtitle', {
 			opacity: 1,
 			y: 0,
+		}).from(".nav",{
+			y: "-100%",
+			ease: "bounce",
+		}).from('main section',	{opacity: 0,
+			y: 50,
+			ease: 'power1.out',
+			stagger: 0.3
 		})
-		.from('.scroll-round', {
-			opacity: 0,
-			duration: 0.6,
-		})
-		.to('.scroll-round', {
-			opacity: 1,
-			scale: 1.2,
-			ease: 'power2.out',
-			duration: 0.6,
-		})
-		.to('.scroll-round', { scale: 1, ease: 'power2.inOut', duration: 0.4 })
-
-	//hover button
-	scrollArrow?.addEventListener('mouseenter', () =>
-		gsap.to('.scroll-round', { scale: 1.1, duration: 0.3 })
-	)
-	scrollArrow?.addEventListener('mouseleave', () =>
-		gsap.to('.scroll-round', { scale: 1, duration: 0.3 })
-	)
 }

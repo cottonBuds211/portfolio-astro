@@ -13,22 +13,23 @@ import "../styles/global.css";
 <Layout pageTitle="Manuel">
   <header id="top" class="flex justify-center">
     <div
-      class="relative w-full max-w-[80ch] h-screen flex flex-col justify-center mx-3 md:mx-0"
+      class="relative w-full max-w-[80ch] h-200 flex flex-col justify-center mx-3 lg:mx-0"
     >
       <h1 class="text-h2 md:text-h1 font-semibold leading-16">
         <span class="hi">Hi,</span>
         <span class="im"> Im </span>
         <span class="name"> Manuel Dalacan </span>
         <br />
-        <span class="description " >
+        <span class="description">
           {
-            "a full stack developer"
-              .split("")
-              .map((char) => (
-                <span class="inline-block opacity-0 p-0 m-0 align-top -translate-y-2" aria-hidden="true">
-                  {char === " " ? "\u00A0" : char}
-                </span>
-              ))
+            "a full stack developer".split("").map((char) => (
+              <span
+                class="inline-block opacity-0 p-0 m-0 align-top -translate-y-2"
+                aria-hidden="true"
+              >
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))
           }
         </span>
       </h1>
@@ -41,7 +42,32 @@ import "../styles/global.css";
             React, Astro.js, Next.js & Tailwind CSS.
           </span>
         </p>
-
+        <article class="contact-content col-span-4">
+          <p class="text-h6">Let's talk!</p>
+          <p class="text-text-secondary">dalacan.manuel96@gmail.com</p>
+          <span class="flex gap-4 md:gap-2 mt-2">
+            <a
+              href="https://github.com/cottonBuds211"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon
+                class="h-6 w-6 text-gray-700/70 hover:text-gray-700"
+                aria-label="Visit Github profile"
+              />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/manuel-john-dalacan-80406121b"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInLogo
+                class="h-6 w-6 text-gray-700/70 hover:text-gray-700"
+                aria-label="Visit LinkedIn profile"
+              />
+            </a>
+          </span>
+        </article>
         <div class="flex pt-4 gap-4">
           <Button
             title="Resumé"
@@ -52,32 +78,13 @@ import "../styles/global.css";
           <Button title="Contact" link="#contacts" />
         </div>
       </div>
-      <div class="flex justify-center">
-        <a
-          class="scroll-round absolute bottom-20 lg:bottom-30 flex justify-center items-center w-12 h-12 opacity-0 border-1 border-black/25 rounded-full bg-white shadow-2xl"
-          href="#about"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="22"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-arrow-down-icon lucide-arrow-down"
-            ><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg
-          >
-        </a>
-      </div>
     </div>
   </header>
-  <span id="about"></span>
-  <main class="max-w-[80ch] mx-4 md:mx-auto my-20 flex flex-col gap-20">
+  <main class="max-w-[80ch] mx-4 md:mx-auto flex flex-col mb-10 gap-20">
     <section>
-      <h5 class="about-title text-h6 pb-10 font-semibold uppercase">About Me</h5>
+      <h5 class="about-title text-h6 pb-10 font-semibold uppercase">
+        About Me
+      </h5>
       <div
         class="about-me text-text-secondary px-5 grid lg:grid-cols-3 gap-5 indent-8 lg:indent-0"
       >
@@ -102,12 +109,19 @@ import "../styles/global.css";
     <span id="experience" class="w-full h-px bg-black/10"></span>
 
     <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
-      <h5 class="experience-title col-span-1 text-h6 font-semibold pb-10 uppercase">Experience</h5>
-      <div class="col-span-4 flex flex-col gap-5">
+      <h5
+        class="experience-title col-span-1 text-h6 font-semibold pb-10 uppercase"
+      >
+        Experience
+      </h5>
+      <div class="col-span-4 flex flex-col">
         {
           experience.map((exp, index) => (
-            <article class={`experience-card flex flex-row items-baseline`}>
-              <span class="text-secondary/70 text-p">0{index + 1}</span>
+            <article
+              class={`relative flex flex-col items-baseline ml-2 pl-6 pb-5 last:pb-0 border-l-2 border-text-secondary 
+                            before:content-[''] before:absolute before:w-3 before:h-3 before:bg-text-primary before:rounded-full 
+                            before:left-[-7px]`}
+            >
               <Experience
                 date={exp.date}
                 location={exp.location}
@@ -121,29 +135,32 @@ import "../styles/global.css";
       </div>
     </section>
     <span id="projects" class="w-full h-px bg-black/10"></span>
-    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
-      <h5 class="project-title col-span-1 text-h6 uppercase font-semibold pb-10">Projects</h5>
-      <div class="col-span-4 flex flex-col gap-5">
+    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30">
+      <h5
+        class="project-title col-span-1 text-h6 uppercase font-semibold pb-10"
+      >
+        Projects
+      </h5>
+      <div class="col-span-4 grid grid-cols-1 md:grid-cols-2 gap-4">
         {
           projects.map((proj, index) => (
-            <article class="project-card flex flex-row items-baseline">
-              <span class="text-secondary/70 text-p">0{index + 1}</span>
-              <Project
-                date={proj.date}
-                title={proj.title}
-                description={proj.description}
-                link={proj.link}
-                img={proj.img}
-                vid={proj.vid}
-              />
-            </article>
+            <Project
+              date={proj.date}
+              title={proj.title}
+              description={proj.description}
+              link={proj.link}
+              img={proj.img}
+              vid={proj.vid}
+            />
           ))
         }
       </div>
     </section>
     <span id="skills" class="w-full h-px bg-black/10"></span>
     <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
-      <h5 class="tech-title col-span-1 text-h6 font-semibold uppercase pb-10">Technology</h5>
+      <h5 class="tech-title col-span-1 text-h6 font-semibold uppercase pb-10">
+        Technology
+      </h5>
       <!-- <HorizontalLine /> -->
       <article class="col-span-4 flex flex-wrap gap-2">
         {
@@ -159,28 +176,6 @@ import "../styles/global.css";
         }
       </article>
     </section>
-    <span id="contacts" class="w-full h-px bg-black/10"></span>
-    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
-      <h5 class="contact-title col-span-1 text-h6 font-semibold uppercase pb-10">Contact</h5>
-      <article class="contact-content col-span-4">
-        <p class="text-h6">Let's talk!</p>
-        <p class="text-text-secondary">You can reach me on my e-mail: dalacan.manuel96@gmail.com</p>
-        <span class="flex gap-4 md:gap-2 mt-2">
-          <a href="https://github.com/cottonBuds211" target="_blank" rel="noopener noreferrer">
-          <GithubIcon class="h-6 w-6 text-gray-700/70 hover:text-gray-700" aria-label="Visit Github profile"/>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/manuel-john-dalacan-80406121b"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-              <LinkedInLogo class="h-6 w-6 text-gray-700/70 hover:text-gray-700" aria-label="Visit LinkedIn profile"/>
-
-         
-          </a>
-        </span>
-      </article>
-    </section>
   </main>
 </Layout>
 
@@ -188,9 +183,8 @@ import "../styles/global.css";
   import { navAnimation } from "../animations/navAnimations";
   import { headerAnimation } from "../animations/headerAnimations";
   import { animateMain } from "../animations/mainAnimation";
-  
+
   headerAnimation();
   navAnimation();
   animateMain();
-
 </script>
