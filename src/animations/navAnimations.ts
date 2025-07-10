@@ -2,7 +2,7 @@
 
   export function navAnimation() {
       const tl = gsap.timeline({paused:true})  
-      tl
+      tl.from('nav', {opacity:0, y:-100})
 
       function handleScroll(){
         if(window.scrollY > 0 && !tl.isActive()){

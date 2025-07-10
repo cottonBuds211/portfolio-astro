@@ -2,8 +2,9 @@
 import LinkIcon from "./LinkIcon.astro";
 import Modal from "./Modal.astro";
 import Image from "astro/components/Image.astro";
+import Technology from "./Technology.astro";
 
-const { date, title, description, link, img, vid } = Astro.props;
+const { date, title, description, link, img, vid, technology } = Astro.props;
 ---
 
 <Modal>
@@ -38,8 +39,11 @@ const { date, title, description, link, img, vid } = Astro.props;
     </article>
   </div>
   <section slot="main" class="w-full h-full p-3 lg:p-10 lg:pt-0">
-    <h4 class="text-text-primary">{title}</h4>
+    <h4 class="text-text-primary text-h4 font-semibold">{title}</h4>
     <p class="text-text-secondary">{description}</p>
+    <div class="flex gap-2 mt-2">
+      {technology.map((tech: string) => <Technology title={tech} className="px-2 py-2 text-sm"/>)}
+    </div>
     <hr class="my-2 text-black/10" />
 
     <video

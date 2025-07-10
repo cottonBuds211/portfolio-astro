@@ -1,10 +1,20 @@
 ---
-const {  logo, title } = Astro.props;
+const { logo, title, className } = Astro.props;
 ---
 
 <span
-  class="w-fit h-fit border border-black/10 p-3 flex items-center gap-2 transition-all duration-200 ease-in  hover:bg-slate-500/20  hover:backdrop-blur-2xl text-text-secondary cursor-default"
+  class=`${className} w-fit h-fit border border-black/10 p-3 flex items-center gap-2 transition-all duration-200 ease-in hover:bg-slate-500/20 hover:backdrop-blur-2xl text-text-secondary cursor-default`
 >
-  {logo && <img src={logo} class="w-5 h-5 object-contain" alt="" aria-hidden="true" loading="lazy"/>}
-    <p title={title}>{title}</p>
+  {
+    logo && (
+      <img
+        src={logo}
+        class="w-5 h-5 object-contain"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      />
+    )
+  }
+  <p title={title}>{title}</p>
 </span>

@@ -10,7 +10,7 @@ export function headerAnimation() {
 			opacity: 0,
 			y: '-20%',
 			duration: 0.5,
-			ease: 'bounce',
+			ease: 'power3.out',
 		})
 		.to('.description span', {
 			y: 0,
@@ -19,13 +19,14 @@ export function headerAnimation() {
 			stagger: 0.05,
 			repeat: 0,
 			ease: 'power2.out',
+		}).from('.katakana', {
+			opacity: 0,
+			duration: 0.3,
+			ease: 'power2.out',
 		})
 		.to('.subtitle', {
 			opacity: 1,
 			y: 0,
-		}).from(".nav",{
-			y: "-100%",
-			ease: "bounce",
 		}).from('main section',	{opacity: 0,
 			y: 50,
 			ease: 'power1.out',

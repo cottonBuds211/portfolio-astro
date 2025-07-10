@@ -13,8 +13,13 @@ import "../styles/global.css";
 <Layout pageTitle="Manuel">
   <header id="top" class="flex justify-center">
     <div
-      class="relative w-full max-w-[80ch] h-200 flex flex-col justify-center mx-3 lg:mx-0"
+      class="relative w-full max-w-[80ch] h-200 flex flex-col justify-center"
     >
+      <div
+        class="katakana absolute hidden md:flex flex-col left-170 text-8xl font-semibold text-black/5"
+      >
+        {"マ ヌ エ ル ".split("").map((char) => <span>{char}</span>)}
+      </div>
       <h1 class="text-h2 md:text-h1 font-semibold leading-16">
         <span class="hi">Hi,</span>
         <span class="im"> Im </span>
@@ -75,7 +80,7 @@ import "../styles/global.css";
             link="/resume/ManuelJohnDalacan.pdf"
             target="_blank"
           />
-          <Button title="Contact" link="#contacts" />
+          <Button title="Experience" link="#experience" />
         </div>
       </div>
     </div>
@@ -86,7 +91,7 @@ import "../styles/global.css";
         About Me
       </h5>
       <div
-        class="about-me text-text-secondary px-5 grid lg:grid-cols-3 gap-5 indent-8 lg:indent-0"
+        class="about-me text-text-secondary px-5 grid lg:grid-cols-3 gap-5 indent-8 lg:indent-0 leading-relaxed"
       >
         <p class="about-paragraph-1">
           Hi, I'm a Junior software developer with a strong foundation in
@@ -153,6 +158,7 @@ import "../styles/global.css";
               link={proj.link}
               img={proj.img}
               vid={proj.vid}
+              technology={proj.technology}
             />
           ))
         }
@@ -161,7 +167,7 @@ import "../styles/global.css";
     <span id="skills" class="w-full h-px bg-black/10"></span>
     <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
       <h5 class="tech-title col-span-1 text-h6 font-semibold uppercase pb-10">
-        Technology
+        Technologies
       </h5>
       <!-- <HorizontalLine /> -->
       <article class="col-span-4 flex flex-wrap gap-2">

@@ -37,6 +37,7 @@ interface projects {
   link: string;
   img: ImageMetadata;
   vid: string;
+  technology: string[];
 }
 export const techStack: technologyItemProps[] = [
   {
@@ -149,6 +150,7 @@ export const projects: projects[] = [
     link: "https://github.com/cottonBuds211/bantali_optical",
     img: bantali,
     vid: bantaliVid,
+    technology: ["React", "TypeScript", "Tailwind", "Express JS", "PostgreSQL"],
   },
   {
     date: "2025",
@@ -157,5 +159,6 @@ export const projects: projects[] = [
     link: "https://github.com/cottonBuds211/portfolio-astro",
     img: portfolio,
     vid: portfolioVid,
+    technology: ["Astro JS", "Typescript", "Tailwind"],
   },
 ];
