@@ -123,6 +123,7 @@ import "../styles/global.css";
                             before:left-[-7px]`}
             >
               <Experience
+                key={index}
                 date={exp.date}
                 location={exp.location}
                 position={exp.position}
@@ -145,6 +146,7 @@ import "../styles/global.css";
         {
           projects.map((proj, index) => (
             <Project
+              key={index}
               date={proj.date}
               title={proj.title}
               description={proj.description}
