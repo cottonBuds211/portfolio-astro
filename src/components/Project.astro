@@ -10,7 +10,7 @@ const { date, title, description, link, img, vid, technology } = Astro.props;
 <Modal>
   <div
     slot="trigger"
-    class="min-w-70 min-h-75 h-full bg-white border border-black/10 hover:shadow-lg hover:cursor-pointer"
+    class="min-w-70 min-h-75 h-full bg-secondary dark:bg-primary border border-primary/10 hover:border-primary/30 dark:border-secondary/10 hover:dark:border-secondary/30 hover:cursor-pointer transition duration-300 rounded-sm "
   >
     <Image
       src={img}
@@ -18,33 +18,34 @@ const { date, title, description, link, img, vid, technology } = Astro.props;
       class="h-full w-full bg-transparent object-cover shadow-inner"
       format="png"
     />
-    <article class="flex flex-1 p-6 flex-col gap-2 h-40">
+    <article class="flex flex-1 p-6 flex-col gap-2 h-40 ">
       <header class="flex justify-between">
-        <h6 class="text-p">{title}</h6>
+        <h6 class="text-p text-primary dark:text-secondary">{title}</h6>
         <a
-          class="cursor-pointer text-text-primary"
+          class="cursor-pointer"
           href={link}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit Github"
         >
           <LinkIcon
-            class="h-5 w-5 text-black/50 hover:text-black stroke-2"
+            class="h-5 w-5 text-primary/50 hover:text-primary dark:text-secondary/50 hover:dark:text-secondary stroke-2"
             aria-hidden="true"
             focusable="false"
           />
         </a>
       </header>
-      <p class="text-sm text-text-secondary">{date}</p>
-      <p class="text-sm text-text-secondary">{description}</p>
+      <p class="text-sm">{date}</p>
+      <p class="text-sm">{description}</p>
     </article>
   </div>
-  <section slot="main" class="w-full h-full p-3 lg:p-10 lg:pt-0">
-    <h4 class="text-text-primary text-h4 font-semibold">{title}</h4>
-    <p class="text-text-secondary">{description}</p>
+  <section slot="main" class="w-full h-full p-3 lg:p-10 lg:pt-0 bg-secondary dark:bg-primary">
+    <h4 class="text-primary dark:text-secondary text-h4 font-semibold">{title}</h4>
+    <p>{description}</p>
     <div class="flex gap-2 mt-2">
       {technology.map((tech: string) => <Technology title={tech} className="px-2 py-2 text-sm"/>)}
     </div>
-    <hr class="my-2 text-black/10" />
+    <hr class="my-2 text-primary/10 dark:text-secondary/10" />
 
     <video
       autoplay

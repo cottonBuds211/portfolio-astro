@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* @font-face {
 	font-family: 'Inter';
@@ -22,7 +23,6 @@
 	src: url('../assets/font/PlayFair.ttf') format('truetype');
 	font-weight: 300;
 	font-style: normal;
-
 }
 
 @font-face {
@@ -36,7 +36,6 @@
 	src: url('../assets/font/Inter.ttf') format('truetype');
 	font-weight: 600;
 	font-style: normal;
-
 }
 @font-face {
 	font-family: 'Inter';
@@ -46,10 +45,15 @@
 }
 
 @theme {
-	--color-secondary: oklch(0.373 0.034 259.733);
-	--color-default-bg: #f4f3f2;
+	/* --color-secondary: oklch(0.373 0.034 259.733);
+	--color-default-bg: #fafafa;
+	--color-white-bg: #ffffff;
 	--color-text-primary: oklch(13% 0.028 261.692);
-	--color-text-secondary: oklch(55.1% 0.027 264.364);
+	--color-text-secondary: oklch(55.1% 0.027 264.364); */
+/* #F1F5F9	 oklch(0.95 0.005 260)	*/
+	--color-primary: oklch(0.373 0.034 259.733);
+	--color-secondary: hsl(0, 0%, 100%);
+	--color-text: oklch(55.1% 0.027 264.364);
 
 	--font-inter: 'Inter';
 	--font-playfair: 'Playfair';
@@ -66,7 +70,7 @@
 }
 html {
 	/* background-color:hsl(212, 45%, 94%); */
-	background-color: #fafafa;
+	background-color: var(--color-primary);
 	margin: 0;
 	scroll-behavior: smooth;
 	/* font-size: 14px; */

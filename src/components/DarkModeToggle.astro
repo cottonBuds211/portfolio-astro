@@ -1,0 +1,54 @@
+---
+import MoonIcon from "./MoonIcon.astro";
+import SunIcon from "./SunIcon.astro";
+---
+<script is:inline>
+    function darkMode() {
+        return {
+            isDark:false,
+
+            init(){
+                const savedTheme = localStorage.getItem('theme')
+                const systemPrefersDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
+
+                this.isDark = savedTheme === 'dark' || (!savedTheme && systemPrefersDark)
+                this.updateTheme();
+
+                window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change', e => {
+                    if(!localStorage.getItem('theme')){
+                        this.isDark = e.matches;
+                        this.updateTheme();
+                    }
+                })
+            },
+
+            toggle(){
+                this.isDark = !this.isDark;
+                this.updateTheme();
+                localStorage.setItem('theme', this.isDark ? 'dark': 'light');
+            },
+
+            updateTheme(){
+                if(this.isDark){
+                    document.documentElement.classList.add('dark')
+                }else{
+                    document.documentElement.classList.remove('dark')
+                }
+            }
+
+        }
+    }
+      window.darkMode = darkMode;
+
+</script>
+
+<div x-data="darkMode()" x-init="init()">
+    <button @click="toggle()" class="p-2 h-10 w-10 border border-primary/10 dark:border-white/10 rounded-lg hover:cursor-pointer text-text dark:text-secondary transition duration-200" aria-label="Toggle dark mode" type="button">    
+            <div x-show="isDark">
+                <SunIcon className="stroke-1" /> 
+            </div>
+            <div x-show="!isDark">
+                <MoonIcon x-show="!isDark" className="stroke-1" /> 
+            </div>   
+    </button>
+</div>

@@ -33,11 +33,11 @@
     x-ref="modal"
     @close="open = false"
     @click.outside="$refs.modal.close(); open=false"
-    class="backdrop:backdrop-blur-xs lg:rounded-lg p-2 w-full h-full m-0 max-w-none max-h-none lg:h-fit lg:w-[70%]"
+    class="backdrop:backdrop-blur-xs lg:rounded-lg p-2 w-full h-full m-0 max-w-none max-h-none lg:h-fit lg:w-[70%] bg-secondary dark:bg-primary text-text dark:text-secondary"
   >
     <form method="dialog">
       <div class="w-full text-end">
-        <button class="text-secondary p-3 cursor-pointer"
+        <button class="text-primary dark:text-secondary p-3 cursor-pointer"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

@@ -13,14 +13,14 @@ import "../styles/global.css";
 <Layout pageTitle="Manuel">
   <header id="top" class="flex justify-center">
     <div
-      class="relative w-full max-w-[80ch] h-200 flex flex-col justify-center"
+      class="relative w-full max-w-[80ch] h-200 flex flex-col justify-center mx-4 md:mx-auto"
     >
       <div
-        class="katakana absolute hidden md:flex flex-col left-170 text-8xl font-semibold text-black/5"
+        class="katakana absolute hidden md:flex flex-col left-170 text-8xl font-semibold text-primary/10 dark:text-secondary/5"
       >
         {"マ ヌ エ ル ".split("").map((char) => <span>{char}</span>)}
       </div>
-      <h1 class="text-h2 md:text-h1 font-semibold leading-16">
+      <h1 class="text-h3 md:text-h1 text-primary dark:text-secondary font-semibold leading-16">
         <span class="hi">Hi,</span>
         <span class="im"> Im </span>
         <span class="name"> Manuel Dalacan </span>
@@ -39,7 +39,7 @@ import "../styles/global.css";
         </span>
       </h1>
       <div
-        class="subtitle flex flex-col gap-4 max-w-[40ch] opacity-0 text-text-secondary mt-8"
+        class="subtitle flex flex-col gap-4 max-w-[40ch] opacity-0 mt-8"
       >
         <p>
           As a fullstack developer, I build modern web apps with tools like
@@ -48,16 +48,17 @@ import "../styles/global.css";
           </span>
         </p>
         <article class="contact-content col-span-4">
-          <p class="text-h6">Let's talk!</p>
-          <p class="text-text-secondary">dalacan.manuel96@gmail.com</p>
+          <p class="font-semibold text-sm uppercase text-primary dark:text-secondary">Let's talk!</p>
+          <p>dalacan.manuel96@gmail.com</p>
           <span class="flex gap-4 md:gap-2 mt-2">
             <a
               href="https://github.com/cottonBuds211"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit Github"
             >
               <GithubIcon
-                class="h-6 w-6 text-gray-700/70 hover:text-gray-700"
+                class="h-6 w-6 text-primary/70 hover:text-primary dark:text-secondary/70 dark:hover:text-secondary"
                 aria-label="Visit Github profile"
               />
             </a>
@@ -65,9 +66,10 @@ import "../styles/global.css";
               href="https://www.linkedin.com/in/manuel-john-dalacan-80406121b"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit LinkedIn"
             >
               <LinkedInLogo
-                class="h-6 w-6 text-gray-700/70 hover:text-gray-700"
+                class="h-6 w-6 text-primary/70 hover:text-primary dark:text-secondary/70 dark:hover:text-secondary"
                 aria-label="Visit LinkedIn profile"
               />
             </a>
@@ -87,7 +89,7 @@ import "../styles/global.css";
   </header>
   <main class="max-w-[80ch] mx-4 md:mx-auto flex flex-col mb-10 gap-20">
     <section>
-      <h5 class="about-title text-h6 pb-10 font-semibold uppercase">
+      <h5 class="about-title text-h6 pb-10 font-semibold uppercase text-primary dark:text-secondary">
         About Me
       </h5>
       <div
@@ -111,11 +113,11 @@ import "../styles/global.css";
       </div>
     </section>
 
-    <span id="experience" class="w-full h-px bg-black/10"></span>
+    <span id="experience" class="w-full h-px bg-primary/10"></span>
 
     <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
       <h5
-        class="experience-title col-span-1 text-h6 font-semibold pb-10 uppercase"
+        class="experience-title col-span-1 text-h6 font-semibold pb-10 uppercase text-primary dark:text-secondary"
       >
         Experience
       </h5>
@@ -123,8 +125,8 @@ import "../styles/global.css";
         {
           experience.map((exp, index) => (
             <article
-              class={`relative flex flex-col items-baseline ml-2 pl-6 pb-5 last:pb-0 border-l-2 border-text-secondary 
-                            before:content-[''] before:absolute before:w-3 before:h-3 before:bg-text-primary before:rounded-full 
+              class={`relative flex flex-col items-baseline ml-2 pl-6 pb-5 last:pb-0 border-l-2 border-text 
+                            before:content-[''] before:absolute before:w-3 before:h-3 before:bg-primary dark:before:bg-secondary before:rounded-full 
                             before:left-[-7px]`}
             >
               <Experience
@@ -140,10 +142,10 @@ import "../styles/global.css";
         }
       </div>
     </section>
-    <span id="projects" class="w-full h-px bg-black/10"></span>
+    <span id="projects" class="w-full h-px bg-primary/10"></span>
     <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30">
       <h5
-        class="project-title col-span-1 text-h6 uppercase font-semibold pb-10"
+        class="project-title col-span-1 text-h6 uppercase font-semibold pb-10 text-primary dark:text-secondary"
       >
         Projects
       </h5>
@@ -164,9 +166,9 @@ import "../styles/global.css";
         }
       </div>
     </section>
-    <span id="skills" class="w-full h-px bg-black/10"></span>
+    <span id="skills" class="w-full h-px bg-primary/10"></span>
     <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
-      <h5 class="tech-title col-span-1 text-h6 font-semibold uppercase pb-10">
+      <h5 class="tech-title col-span-1 text-h6 font-semibold uppercase pb-10 text-primary dark:text-secondary">
         Technologies
       </h5>
       <!-- <HorizontalLine /> -->

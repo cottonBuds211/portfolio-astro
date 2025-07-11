@@ -2,24 +2,24 @@
 const { date, position, company, description } = Astro.props;
 ---
 
-<div class="relative flex flex-col">
+<div class="relative flex flex-col ext-text">
   <header>
-    <p class="text-text-secondary">{date}</p>
+    <p>{date}</p>
 
-    <h6 class="text-h6">
+    <h6 class="text-h6 text-primary dark:text-secondary">
       {position} @ {company}
     </h6>
   </header>
 
   {
     Array.isArray(description) ? (
-      <ul class="list-disc pl-4 text-text-secondary space-y-1">
+      <ul class="list-disc pl-4 space-y-1">
         {description.map((item) => (
           <li>{item}</li>
         ))}
       </ul>
     ) : (
-      <p class="text-text-secondary">{description}</p>
+      <p >{description}</p>
     )
   }
 </div>
