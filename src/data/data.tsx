@@ -29,7 +29,7 @@ interface experience {
 	location: string
 	position: string
 	company: string
-	description: string
+	description: string[] | string
 }
 interface projects {
 	date: string
@@ -137,14 +137,6 @@ export const experience: experience[] = [
 		description:
 			'Responsible for integrating APIs, making pages responsive and more front-end stuff.',
 	},
-	// {
-	// 	date: 'Jan - Apr 2025',
-	// 	location: 'Muntinlupa City',
-	// 	position: 'Web Dev Intern',
-	// 	company: 'Advanced World Solutions',
-	// 	description:
-	// 		'Responsible for integration API, making pages responsive.',
-	// },
 ]
 
 export const projects: projects[] = [
