@@ -50,11 +50,11 @@
 	--color-white-bg: #ffffff;
 	--color-text-primary: oklch(13% 0.028 261.692);
 	--color-text-secondary: oklch(55.1% 0.027 264.364); */
-/* #F1F5F9	 oklch(0.95 0.005 260)	*/
+	/* #F1F5F9	 oklch(0.95 0.005 260)	*/
 	--color-primary: oklch(0.373 0.034 259.733);
 	--color-secondary: hsl(0, 0%, 100%);
 	--color-text: oklch(55.1% 0.027 264.364);
-
+	--color-accent: hsl(82, 76%, 56%);
 	--font-inter: 'Inter';
 	--font-playfair: 'Playfair';
 

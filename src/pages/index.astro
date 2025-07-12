@@ -20,7 +20,7 @@ import "../styles/global.css";
       >
         {"マ ヌ エ ル ".split("").map((char) => <span>{char}</span>)}
       </div>
-      <h1 class="text-h3 md:text-h1 text-primary dark:text-secondary font-semibold leading-16">
+      <h1 class="text-h4 md:text-h1 text-primary dark:text-secondary font-semibold md:leading-16">
         <span class="hi">Hi,</span>
         <span class="im"> Im </span>
         <span class="name"> Manuel Dalacan </span>
@@ -39,10 +39,10 @@ import "../styles/global.css";
         </span>
       </h1>
       <div
-        class="subtitle flex flex-col gap-4 max-w-[40ch] opacity-0 mt-8"
+        class="subtitle flex flex-col gap-4 max-w-[60ch] opacity-0 mt-8"
       >
         <p>
-          As a fullstack developer, I build modern web apps with tools like
+         I build modern web apps with tools like
           <span class="text-glow">
             React, Astro.js, Next.js & Tailwind CSS.
           </span>
@@ -58,7 +58,7 @@ import "../styles/global.css";
               aria-label="Visit Github"
             >
               <GithubIcon
-                class="h-6 w-6 text-primary/70 hover:text-primary dark:text-secondary/70 dark:hover:text-secondary"
+                class="h-6 w-6 text-primary/70 hover:text-accent dark:text-secondary/70 "
                 aria-label="Visit Github profile"
               />
             </a>
@@ -69,7 +69,7 @@ import "../styles/global.css";
               aria-label="Visit LinkedIn"
             >
               <LinkedInLogo
-                class="h-6 w-6 text-primary/70 hover:text-primary dark:text-secondary/70 dark:hover:text-secondary"
+                class="h-6 w-6 text-primary/70 hover:text-accent dark:text-secondary/70 "
                 aria-label="Visit LinkedIn profile"
               />
             </a>
@@ -87,7 +87,7 @@ import "../styles/global.css";
       </div>
     </div>
   </header>
-  <main class="max-w-[80ch] mx-4 md:mx-auto flex flex-col mb-10 gap-20">
+  <main class="max-w-[80ch] mx-4 md:mx-auto flex flex-col mb-10 gap-30">
     <section>
       <h5 class="about-title text-h6 pb-10 font-semibold uppercase text-primary dark:text-secondary">
         About Me
@@ -125,8 +125,8 @@ import "../styles/global.css";
         {
           experience.map((exp, index) => (
             <article
-              class={`relative flex flex-col items-baseline ml-2 pl-6 pb-5 last:pb-0 border-l-2 border-text 
-                            before:content-[''] before:absolute before:w-3 before:h-3 before:bg-primary dark:before:bg-secondary before:rounded-full 
+              class={`relative flex flex-col items-baseline ml-2 pl-6 pb-5 last:pb-0 border-l-2 border-accent/50 
+                            before:content-[''] before:absolute before:w-3 before:h-3 before:bg-accent  before:rounded-full 
                             before:left-[-7px]`}
             >
               <Experience
