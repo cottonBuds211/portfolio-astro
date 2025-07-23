@@ -121,7 +121,7 @@ import "../styles/global.css";
       </h5>
       <div class="col-span-4 flex flex-col">
         {
-          experience.map((exp, index) => (
+          experience.reverse().map((exp, index) => (
             <article
               class={`relative flex flex-col items-baseline ml-2 pl-6 pb-5 last:pb-0 border-l-2 border-accent/50 
                             before:content-[''] before:absolute before:w-3 before:h-3 before:bg-accent  before:rounded-full 
@@ -208,9 +208,7 @@ import "../styles/global.css";
 <script>
   import { navAnimation } from "../animations/navAnimations";
   import { headerAnimation } from "../animations/headerAnimations";
-  import { animateMain } from "../animations/mainAnimation";
 
   headerAnimation();
   navAnimation();
-  animateMain();
 </script>

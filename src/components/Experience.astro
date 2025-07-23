@@ -4,11 +4,12 @@ const { date, position, company, description } = Astro.props;
 
 <div class="relative flex flex-col ext-text">
   <header>
-    <p>{date}</p>
+    <p class="text-sm">{date}</p>
 
     <h6 class="text-h6 text-primary dark:text-secondary">
-      {position} @ {company}
+      {company}
     </h6>
+    <p class="text-sm mb-2 uppercase">{position}</p>
   </header>
 
   {
