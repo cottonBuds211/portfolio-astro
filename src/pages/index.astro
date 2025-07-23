@@ -20,16 +20,16 @@ import "../styles/global.css";
       >
         {"マ ヌ エ ル ".split("").map((char) => <span>{char}</span>)}
       </div>
-      <h1 class="text-h4 md:text-h1 text-primary dark:text-secondary font-semibold md:leading-16">
-        <span class="hi">Hi,</span>
-        <span class="im"> Im </span>
-        <span class="name"> Manuel Dalacan </span>
+      <h1
+        class="md:text-h1 text-primary dark:text-secondary font-semibold md:leading-16"
+      >
+        <span class="uppercase text-h6">👋 Hi, I'm Manuel Dalacan</span>
         <br />
-        <span class="description">
+        <span class="description text-h4">
           {
             "a full stack developer".split("").map((char) => (
               <span
-                class="inline-block opacity-0 p-0 m-0 align-top -translate-y-2"
+                class="inline-block text-h1 p-0 m-0 align-top -translate-y-2"
                 aria-hidden="true"
               >
                 {char === " " ? "\u00A0" : char}
@@ -38,18 +38,14 @@ import "../styles/global.css";
           }
         </span>
       </h1>
-      <div
-        class="subtitle flex flex-col gap-4 max-w-[60ch] opacity-0 mt-8"
-      >
+      <div class="subtitle flex flex-col gap-4 max-w-[40ch] mt-8">
         <p>
-         I build modern web apps with tools like
+          I build modern web apps with tools like
           <span class="text-glow">
             React, Astro.js, Next.js & Tailwind CSS.
           </span>
         </p>
         <article class="contact-content col-span-4">
-          <p class="font-semibold text-sm uppercase text-primary dark:text-secondary">Let's talk!</p>
-          <p>dalacan.manuel96@gmail.com</p>
           <span class="flex gap-4 md:gap-2 mt-2">
             <a
               href="https://github.com/cottonBuds211"
@@ -58,7 +54,7 @@ import "../styles/global.css";
               aria-label="Visit Github"
             >
               <GithubIcon
-                class="h-6 w-6 text-primary/70 hover:text-accent dark:text-secondary/70 "
+                class="h-6 w-6 text-primary/70 hover:text-accent dark:text-secondary/70"
                 aria-label="Visit Github profile"
               />
             </a>
@@ -69,7 +65,7 @@ import "../styles/global.css";
               aria-label="Visit LinkedIn"
             >
               <LinkedInLogo
-                class="h-6 w-6 text-primary/70 hover:text-accent dark:text-secondary/70 "
+                class="h-6 w-6 text-primary/70 hover:text-accent dark:text-secondary/70"
                 aria-label="Visit LinkedIn profile"
               />
             </a>
@@ -82,14 +78,16 @@ import "../styles/global.css";
             link="/resume/ManuelJohnDalacan.pdf"
             target="_blank"
           />
-          <Button title="Experience" link="#experience" />
+          <Button title="Contact" link="#contact" />
         </div>
       </div>
     </div>
   </header>
-  <main class="max-w-[80ch] mx-4 md:mx-auto flex flex-col mb-10 gap-30">
+  <main class="max-w-[80ch] mx-4 md:mx-auto flex flex-col mb-10 gap-25">
     <section>
-      <h5 class="about-title text-h6 pb-10 font-semibold uppercase text-primary dark:text-secondary">
+      <h5
+        class="about-title text-h6 pb-10 font-semibold uppercase text-primary dark:text-secondary"
+      >
         About Me
       </h5>
       <div
@@ -168,7 +166,9 @@ import "../styles/global.css";
     </section>
     <span id="skills" class="w-full h-px bg-primary/10"></span>
     <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
-      <h5 class="tech-title col-span-1 text-h6 font-semibold uppercase pb-10 text-primary dark:text-secondary">
+      <h5
+        class="tech-title col-span-1 text-h6 font-semibold uppercase pb-10 text-primary dark:text-secondary"
+      >
         Technologies
       </h5>
       <!-- <HorizontalLine /> -->
@@ -185,6 +185,22 @@ import "../styles/global.css";
           ))
         }
       </article>
+    </section>
+    <span id="contact" class="w-full h-px bg-primary/10"></span>
+    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
+      <h5
+        class="contact-title col-span-1 text-h6 font-semibold uppercase pb-10 text-primary dark:text-secondary"
+      >
+        Contact
+      </h5>
+      <div class="flex flex-col col-span-4">
+        <p
+          class="font-semibold text-sm uppercase text-primary dark:text-secondary"
+        >
+          Let's talk!
+        </p>
+        <p>dalacan.manuel96@gmail.com</p>
+      </div>
     </section>
   </main>
 </Layout>

@@ -6,7 +6,7 @@ import "../styles/global.css";
 const { pageTitle } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="dark:bg-primary bg-secondary">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -23,7 +23,9 @@ const { pageTitle } = Astro.props;
     </script>
   </head>
   <!--  -->
-  <body class="font-inter bg-secondary dark:bg-primary text-text dark:text-secondary/80 mx-3 md:mx-auto text-p">
+  <body
+    class="font-inter bg-secondary dark:bg-primary text-text dark:text-secondary/80 mx-3 md:mx-auto text-p"
+  >
     <Nav />
     <slot />
     <Footer />
