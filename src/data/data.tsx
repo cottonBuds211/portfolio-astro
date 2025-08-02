@@ -159,7 +159,7 @@ export const projects: projects[] = [
   },
   {
     date: "2025",
-    title: "Web Portfolio",
+    title: "Web Portfolio V1",
     description: "My very own portfolio. Not a template.",
     link: "https://github.com/cottonBuds211/portfolio-astro",
     img: portfolio,

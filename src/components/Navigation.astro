@@ -1,7 +1,7 @@
 ---
 import DarkModeToggle from "./DarkModeToggle.astro";
-import DropDown from "./DropDown.astro";
-import MenuIcon from "./MenuIcon.astro";
+import DropDown from "./ui/DropDown.astro";
+import MenuIcon from "./icons/MenuIcon.astro";
 
 const navLinks = [
   {
@@ -9,18 +9,23 @@ const navLinks = [
     link: "experience",
   },
   { title: "Projects", link: "projects" },
+  { title: "Contact", link: "contact" },
 ];
 ---
 
-<div class="h-full flex items-center mx-4 justify-between text-primary dark:text-secondary">
+<div
+  class="h-full flex items-center mx-4 justify-between text-primary dark:text-secondary"
+>
   <div class="relative inline-block">
-  <span class="absolute inset-0 rounded-lg bg-primary/50 dark:bg-secondary/50 -z-10 translate-x-1 translate-y-1"></span>
-  <a
-    class="w-10 h-10 font-bold bg-white rounded-lg flex justify-center items-center  cursor-pointer hover:translate-x-1 hover:translate-y-1 hover:shadow-sm transition ease-linear duration-150"
-    href="#top"
-  >
-    <span class="text-gray-800"> MD </span>
-  </a>
+    <span
+      class="absolute inset-0 rounded-lg bg-primary/50 dark:bg-secondary/50 -z-10 translate-x-1 translate-y-1"
+    ></span>
+    <a
+      class="w-10 h-10 font-bold bg-white rounded-lg flex justify-center items-center cursor-pointer hover:translate-x-1 hover:translate-y-1 hover:shadow-sm transition ease-linear duration-150"
+      href="#top"
+    >
+      <span class="text-gray-800"> MD </span>
+    </a>
   </div>
 
   <div class="hidden md:flex gap-3 h-full items-center">
@@ -39,30 +44,27 @@ const navLinks = [
   <div class="flex gap-2">
     <DarkModeToggle />
     <div class="flex md:hidden">
-        <DropDown>
+      <DropDown>
         <div slot="trigger">
-           <MenuIcon className="stroke-1" />
+          <MenuIcon className="stroke-1" />
         </div>
         <div slot="content">
           <ul>
             {
-            navLinks.map((link) => (
-             <li>
-                <a
-                  class="relative p-2 hover:cursor-pointer h-full flex items-center border-b border-primary/10 dark:border-secondary/10 hover:dark:bg-secondary/40 rounded-sm hover:bg-primary/40" 
-                  href={`#${link.link}`}
-                >
-                  {link.title}
-                 
-                </a>
-             </li>
-            ))
-          }
+              navLinks.map((link) => (
+                <li>
+                  <a
+                    class="relative p-2 hover:cursor-pointer h-full flex items-center border-b border-primary/10 dark:border-secondary/10 hover:dark:bg-secondary/40 rounded-sm hover:bg-primary/40"
+                    href={`#${link.link}`}
+                  >
+                    {link.title}
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </div>
-       
-    </DropDown>
+      </DropDown>
     </div>
-  
   </div>
 </div>

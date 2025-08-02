@@ -1,13 +1,14 @@
 ---
-import Button from "../components/Button.astro";
+import Button from "../components/ui/Button.astro";
 import Experience from "../components/Experience.astro";
-import GithubIcon from "../components/GithubIcon.astro";
-import LinkedInLogo from "../components/LinkedInLogo.astro";
+import GithubIcon from "../components/icons/GithubIcon.astro";
+import LinkedInLogo from "../components/icons/LinkedInLogo.astro";
 import Project from "../components/Project.astro";
 import Technology from "../components/Technology.astro";
 import { experience, projects, techStack } from "../data/data";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
+import GmailIcon from "../assets/logos/gmail.png";
 ---
 
 <Layout pageTitle="Manuel">
@@ -21,21 +22,12 @@ import "../styles/global.css";
         {"マ ヌ エ ル ".split("").map((char) => <span>{char}</span>)}
       </div>
       <h1
-        class="md:text-h1 text-primary dark:text-secondary font-semibold md:leading-16"
+        class="text-primary dark:text-secondary font-semibold leading-12 md:leading-16 text-h5 md:text-h4"
       >
-        <span class="uppercase text-h6">👋 Hi, I'm Manuel Dalacan</span>
+        <span class="uppercase text-h6">👋 Hi, I'm Manuel,</span>
         <br />
-        <span class="description text-h4">
-          {
-            "a full stack developer".split("").map((char) => (
-              <span
-                class="inline-block text-h1 p-0 m-0 align-top -translate-y-2"
-                aria-hidden="true"
-              >
-                {char === " " ? "\u00A0" : char}
-              </span>
-            ))
-          }
+        <span class="description text-h2 md:text-h1 font-dancing-script font-bold">
+          a full stack developer
         </span>
       </h1>
       <div class="subtitle flex flex-col gap-4 max-w-[40ch] mt-8">
@@ -193,22 +185,22 @@ import "../styles/global.css";
       >
         Contact
       </h5>
-      <div class="flex flex-col col-span-4">
+      <div class="flex flex-col gap-5 col-span-4">
         <p
           class="font-semibold text-sm uppercase text-primary dark:text-secondary"
         >
           Let's talk!
         </p>
-        <p>dalacan.manuel96@gmail.com</p>
+        <Technology title={"dalacan.manuel96@gmail.com"} logo={GmailIcon.src} className={'text-primary dark:text-secondary text-shadow-2xs'}/>
       </div>
     </section>
   </main>
+
+  <script>
+    import { navAnimation } from "../animations/navAnimations";
+    import { headerAnimation } from "../animations/headerAnimations";
+
+    headerAnimation();
+    navAnimation();
+  </script>
 </Layout>
-
-<script>
-  import { navAnimation } from "../animations/navAnimations";
-  import { headerAnimation } from "../animations/headerAnimations";
-
-  headerAnimation();
-  navAnimation();
-</script>

@@ -1,6 +1,6 @@
 ---
 import Footer from "../components/Footer.astro";
-import Nav from "../components/Nav.astro";
+import NavBar from "../components/NavBar.astro";
 import "../styles/global.css";
 
 const { pageTitle } = Astro.props;
@@ -26,7 +26,7 @@ const { pageTitle } = Astro.props;
   <body
     class="font-inter bg-secondary dark:bg-primary text-text dark:text-secondary/80 mx-3 md:mx-auto text-p"
   >
-    <Nav />
+    <NavBar />
     <slot />
     <Footer />
   </body>
