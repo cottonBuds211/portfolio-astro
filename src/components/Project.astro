@@ -10,16 +10,15 @@ const { date, title, description, link, img, vid, technology } = Astro.props;
 <Modal>
   <div
     slot="trigger"
-    class="min-w-70 min-h-90 h-full bg-secondary dark:bg-primary border border-primary/10 hover:border-accent/80 dark:border-secondary/10  hover:cursor-pointer transition duration-300 rounded-sm "
+    class="min-w-[35ch] min-h-100 h-full bg-secondary dark:bg-primary border border-primary/10 hover:border-accent/80 dark:border-secondary/10 hover:cursor-pointer transition duration-300 rounded-sm"
   >
     <Image
       src={img}
       alt=""
-      class="h-full w-full bg-transparent object-cover brightness-80"
+      class="h-full w-full bg-transparent object-cover brightness-90"
       format="png"
     />
-    <article class="flex flex-1 p-6 flex-col gap-2 h-40 ">
-      
+    <article class="flex flex-1 p-6 flex-col gap-2 h-40">
       <header class="flex justify-between h-full">
         <h6 class="text-p text-primary dark:text-secondary">{title}</h6>
         <a
@@ -30,7 +29,7 @@ const { date, title, description, link, img, vid, technology } = Astro.props;
           aria-label="Visit Github"
         >
           <LinkIcon
-            class="h-5 w-5 text-primary/50 hover:text-accent dark:text-secondary/50  stroke-2"
+            class="h-5 w-5 text-primary/50 hover:text-accent dark:text-secondary/50 stroke-2"
             aria-hidden="true"
             focusable="false"
           />
@@ -38,31 +37,36 @@ const { date, title, description, link, img, vid, technology } = Astro.props;
       </header>
       <p class="text-sm">{date}</p>
       <p class="text-sm">{description}</p>
-      <div class="flex flex-wrap gap-1">      
-        {technology.map((tech:string) => <Pill title={tech} className="text-text dark:text-primary/60"/>)}
+      <div class="flex flex-wrap gap-1">
+        {technology.map((tech: string) => <Pill title={tech} />)}
       </div>
     </article>
   </div>
-  <section slot="main" class="w-full h-full p-3 lg:p-10 lg:pt-0 bg-secondary dark:bg-primary">
+  <section
+    slot="main"
+    class="w-full h-full p-3 lg:p-10 lg:pt-0 bg-secondary dark:bg-primary"
+  >
     <span class="flex gap-4 items-center">
-      <h4 class="text-primary dark:text-secondary text-h4 font-semibold">{title}</h4>
-        <a
-          class="cursor-pointer"
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Visit Github"
-        >
-          <LinkIcon
-            class="h-6 w-6 text-primary/50 hover:text-accent dark:text-secondary/50  stroke-2"
-            aria-hidden="true"
-            focusable="false"
-          />
-        </a>
+      <h4 class="text-primary dark:text-secondary text-h4 font-semibold">
+        {title}
+      </h4>
+      <a
+        class="cursor-pointer"
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visit Github"
+      >
+        <LinkIcon
+          class="h-6 w-6 text-primary/50 hover:text-accent dark:text-secondary/50 stroke-2"
+          aria-hidden="true"
+          focusable="false"
+        />
+      </a>
     </span>
     <p>{description}</p>
     <div class="flex gap-2 mt-2">
-      {technology.map((tech: string) => <Pill title={tech}/>)}
+      {technology.map((tech: string) => <Pill title={tech} />)}
     </div>
     <hr class="my-2 text-primary/10 dark:text-secondary/10" />
 

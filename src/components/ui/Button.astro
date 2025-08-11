@@ -1,21 +1,29 @@
 ---
+import LinkIcon from "../icons/LinkIcon.astro";
+
 const { title, type, link, target } = Astro.props;
 const defaultStyle =
-  "flex items-center py-2 px-4 flex gap-2 cursor-pointer  transition-all ease-in duration-200 border-black/25 w-fit hover:translate-x-1 hover:translate-y-1 rounded-sm";
+  "flex items-center py-2 px-4 flex gap-2 cursor-pointer text-primary transition-all ease-in duration-200 border-black/25 w-fit hover:translate-x-1 hover:translate-y-1 rounded-sm";
 
- const primary = "bg-accent text-primary/90 dark:text-secondary/80" 
-
+const primary = "bg-accent text-secondary";
 ---
 
 <div class="relative inline-block">
-  <span class="absolute rounded-sm inset-0 bg-primary/40 dark:bg-secondary/40 -z-10 translate-x-1 translate-y-1"></span>
+  <span
+    class="absolute rounded-sm inset-0 bg-primary/40 dark:bg-secondary/40 -z-10 translate-x-1 translate-y-1"
+  ></span>
   <a
-  class={`${defaultStyle} ${type === "primary" ? primary : "bg-secondary dark:bg-primary dark:border dark:border-secondary/30 shadow-sm"}`}
-  href={link}
-  target={target}
->
-  {title}
-  {title === "Resumé" ? <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg> : ""}
-</a>
+    class={`${defaultStyle} ${type === "primary" ? primary : "bg-secondary"}`}
+    href={link}
+    target={target}
+  >
+    {title}
+    {
+      title === "Resumé" ? (
+        <LinkIcon className="w-4 h-4" />
+      ) : (
+        ""
+      )
+    }
+  </a>
 </div>
-

@@ -14,22 +14,22 @@ import GmailIcon from "../assets/logos/gmail.png";
 <Layout pageTitle="Manuel">
   <header id="top" class="flex justify-center">
     <div
-      class="relative w-full max-w-[80ch] h-200 flex flex-col justify-center mx-4 md:mx-auto"
+      class="relative w-full max-w-[100ch] h-180 flex flex-col justify-center mx-4 md:mx-auto"
     >
-      <div
+      <!-- <div
         class="katakana absolute hidden md:flex flex-col left-170 text-8xl font-semibold text-primary/10 dark:text-secondary/5"
       >
         {"マ ヌ エ ル ".split("").map((char) => <span>{char}</span>)}
-      </div>
-      <h1
-        class="text-primary dark:text-secondary font-semibold leading-12 md:leading-16 text-h5 md:text-h4"
+      </div> -->
+      <div
+        class="text-primary w-full dark:text-secondary font-semibold leading-12 md:leading-16 text-h5 md:text-h4"
       >
-        <span class="uppercase text-h6">👋 Hi, I'm Manuel,</span>
+        <span class="font-dancing-script text-h4">Hi, I'm Manuel 👋</span>
         <br />
-        <span class="description text-h2 md:text-h1 font-dancing-script font-bold">
-          a full stack developer
+        <span class="description text-h1 md:text-[6rem] font-inter">
+          a <span class="text-accent">full stack </span>developer
         </span>
-      </h1>
+      </div>
       <div class="subtitle flex flex-col gap-4 max-w-[40ch] mt-8">
         <p>
           I build modern web apps with tools like
@@ -76,10 +76,65 @@ import GmailIcon from "../assets/logos/gmail.png";
     </div>
   </header>
   <main class="max-w-[80ch] mx-4 md:mx-auto flex flex-col mb-10 gap-25">
-    <section>
+    <section class="flex flex-col gap-8">
+      <span id="projects" class="w-full h-px bg-primary/10"></span>
+
       <h5
-        class="about-title text-h6 pb-10 font-semibold uppercase text-primary dark:text-secondary"
+        class="project-title col-span-1 text-h4 font-inter pb-10 text-primary dark:text-secondary"
       >
+        Projects
+      </h5>
+      <div class="flex flex-wrap gap-4 mx-auto">
+        {
+          projects.map((proj, index) => (
+            <div class="w-[35ch] mx-auto">
+              <Project
+                key={index}
+                date={proj.date}
+                title={proj.title}
+                description={proj.description}
+                link={proj.link}
+                img={proj.img}
+                vid={proj.vid}
+                technology={proj.technology}
+              />
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <span id="experience" class="w-full h-px bg-primary/10"></span>
+
+    <section class="flex flex-col">
+      <h5
+        class="experience-title col-span-1 text-h4 pb-10 text-primary dark:text-secondary"
+      >
+        Experiences
+      </h5>
+      <div class="flex flex-col mx-auto">
+        {
+          experience.reverse().map((exp, index) => (
+            <article
+              class={`relative flex flex-col items-baseline ml-2 pl-6 pb-5 last:pb-0 border-l-2 border-accent/50 
+                            before:content-[''] before:absolute before:w-3 before:h-3 before:bg-accent  before:rounded-full 
+                            before:left-[-7px]`}
+            >
+              <Experience
+                key={index}
+                date={exp.date}
+                location={exp.location}
+                position={exp.position}
+                company={exp.company}
+                description={exp.description}
+              />
+            </article>
+          ))
+        }
+      </div>
+    </section>
+    <section>
+      <h5 class="about-title text-h4 pb-10 text-primary dark:text-secondary">
         About Me
       </h5>
       <div
@@ -102,69 +157,15 @@ import GmailIcon from "../assets/logos/gmail.png";
         </p>
       </div>
     </section>
-
-    <span id="experience" class="w-full h-px bg-primary/10"></span>
-
-    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
-      <h5
-        class="experience-title col-span-1 text-h6 font-semibold pb-10 uppercase text-primary dark:text-secondary"
-      >
-        Experience
-      </h5>
-      <div class="col-span-4 flex flex-col">
-        {
-          experience.reverse().map((exp, index) => (
-            <article
-              class={`relative flex flex-col items-baseline ml-2 pl-6 pb-5 last:pb-0 border-l-2 border-accent/50 
-                            before:content-[''] before:absolute before:w-3 before:h-3 before:bg-accent  before:rounded-full 
-                            before:left-[-7px]`}
-            >
-              <Experience
-                key={index}
-                date={exp.date}
-                location={exp.location}
-                position={exp.position}
-                company={exp.company}
-                description={exp.description}
-              />
-            </article>
-          ))
-        }
-      </div>
-    </section>
-    <span id="projects" class="w-full h-px bg-primary/10"></span>
-    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30">
-      <h5
-        class="project-title col-span-1 text-h6 uppercase font-semibold pb-10 text-primary dark:text-secondary"
-      >
-        Projects
-      </h5>
-      <div class="col-span-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-        {
-          projects.map((proj, index) => (
-            <Project
-              key={index}
-              date={proj.date}
-              title={proj.title}
-              description={proj.description}
-              link={proj.link}
-              img={proj.img}
-              vid={proj.vid}
-              technology={proj.technology}
-            />
-          ))
-        }
-      </div>
-    </section>
     <span id="skills" class="w-full h-px bg-primary/10"></span>
-    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
+    <section class="flex flex-col">
       <h5
-        class="tech-title col-span-1 text-h6 font-semibold uppercase pb-10 text-primary dark:text-secondary"
+        class="tech-title col-span-1 text-h4 pb-10 text-primary dark:text-secondary"
       >
         Technologies
       </h5>
       <!-- <HorizontalLine /> -->
-      <article class="col-span-4 flex flex-wrap gap-2">
+      <article class="flex flex-wrap gap-2 mx-auto">
         {
           techStack.map((item) => (
             <div class="tech-button">
@@ -179,19 +180,23 @@ import GmailIcon from "../assets/logos/gmail.png";
       </article>
     </section>
     <span id="contact" class="w-full h-px bg-primary/10"></span>
-    <section class="grid grid-cols-1 lg:grid-cols-5 lg:gap-30 items-baseline">
+    <section class="flex flex-col">
       <h5
-        class="contact-title col-span-1 text-h6 font-semibold uppercase pb-10 text-primary dark:text-secondary"
+        class="contact-title text-h4 pb-10 text-primary dark:text-secondary"
       >
         Contact
       </h5>
-      <div class="flex flex-col gap-5 col-span-4">
+      <div class="flex flex-col gap-5">
         <p
           class="font-semibold text-sm uppercase text-primary dark:text-secondary"
         >
           Let's talk!
         </p>
-        <Technology title={"dalacan.manuel96@gmail.com"} logo={GmailIcon.src} className={'text-primary dark:text-secondary text-shadow-2xs'}/>
+        <Technology
+          title={"dalacan.manuel96@gmail.com"}
+          logo={GmailIcon.src}
+          className={"text-primary dark:text-secondary text-shadow-2xs"}
+        />
       </div>
     </section>
   </main>
