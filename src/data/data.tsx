@@ -144,6 +144,13 @@ export const experience: experience[] = [
     company: "Advanced World Solutions",
     description: "Currently undertaking 5 months training.",
   },
+  {
+    date: "March 2026 - Present",
+    location: "Muntinlupa City",
+    position: "Junior R&D Engineer",
+    company: "Advanced World Solutions",
+    description: "Developing an RPA tool using Python to aid in the business process for an external client.",
+  },
 ];
 
 export const projects: projects[] = [
