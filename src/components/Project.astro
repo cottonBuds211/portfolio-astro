@@ -2,7 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import LinkIcon from "./icons/LinkIcon.astro";
 import Modal from "./ui/Modal.astro";
-import Image from "astro/components/Image.astro";
+import { Image } from "astro:assets";
 import Pill from "./ui/Pill.astro";
 
 interface Props {
@@ -75,31 +75,30 @@ const { date, title, link, img, vid, technology } = projEntry.data;
           ></path><circle cx="12" cy="12" r="3"></circle></svg
         ></span
       >
-        <LinkIcon
-          class="h-6 w-6 text-primary/50 hover:text-accent dark:text-secondary/50 stroke-2"
-          aria-hidden="true"
-          focusable="false"
-        />
-      </a>
-    </span>
-    <div class="prose-sm">
-      <slot />
+      <LinkIcon
+        class="h-6 w-6 text-primary/50 hover:text-accent dark:text-secondary/50 stroke-2"
+        aria-hidden="true"
+        focusable="false"
+      />
     </div>
-    <div class="flex gap-2 mt-2">
-      {technology.map((tech: string) => <Pill title={tech} />)}
-    </div>
-    <hr class="my-2 text-primary/10 dark:text-secondary/10" />
+  </Modal>
+  <div class="prose-sm">
+    <slot />
+  </div>
+  <div class="flex gap-2 mt-2">
+    {technology.map((tech: string) => <Pill title={tech} />)}
+  </div>
+  <hr class="my-2 text-primary/10 dark:text-secondary/10" />
 
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      width="100%"
-      aria-label=`Video demo of ${title}`
-    >
-      <source src={vid} type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  </section>
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    width="100%"
+    aria-label=`Video demo of ${title}`
+  >
+    <source src={vid} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 </Modal>
