@@ -4,9 +4,14 @@
 
 <div
   id="loading-screen"
-  class="fixed inset-0 z-50 flex items-center justify-center bg-secondary dark:bg-primary transition-opacity duration-500"
+  class="fixed inset-0 z-[60] flex items-center justify-center bg-secondary dark:bg-primary transition-opacity duration-500"
 >
-  <img src="/logo.svg" alt="" class="h-16 w-16 animate-pulse" />
+  <img
+    src="/logo.svg"
+    alt=""
+    class="h-16 w-16 opacity-0 transition-opacity duration-700 ease-out animate-pulse"
+    id="loading-logo"
+  />
 </div>
 
 <style>
@@ -14,12 +19,21 @@
     opacity: 0;
     pointer-events: none;
   }
+  #loading-logo.fade-in {
+    opacity: 1;
+  }
 </style>
 
 <script>
   const loadingScreen = document.getElementById("loading-screen");
-  const MIN_DISPLAY_MS = 1500;
+  const loadingLogo = document.getElementById("loading-logo");
+  const MIN_DISPLAY_MS = 2000; // Increased to account for the logo fade-in duration
   const start = performance.now();
+
+  // Trigger logo fade-in on mount
+  requestAnimationFrame(() => {
+    loadingLogo?.classList.add("fade-in");
+  });
 
   function hideLoadingScreen() {
     const elapsed = performance.now() - start;

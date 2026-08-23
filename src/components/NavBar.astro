@@ -3,9 +3,8 @@ import Navigation from "./Navigation.astro";
 ---
 
 <nav
-  x-data="{ top: true }"
+  x-data="nav"
   x-cloak
-  x-init="const update = () => { top = window.scrollY === 0 }; update(); window.addEventListener('scroll', update);"
   :class="{ 'bg-transparent': top, 'backdrop-blur-sm shadow-sm': !top }"
   class="nav fixed top-0 w-full h-20 z-50"
 >

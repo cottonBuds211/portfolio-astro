@@ -15,6 +15,16 @@ const { pageTitle } = Astro.props;
     <title>{pageTitle}</title>
     <script>
       import Alpine from "alpinejs";
+      Alpine.data("nav", () => ({
+        top: true,
+        init() {
+          const update = () => {
+            this.top = window.scrollY === 0;
+          };
+          update();
+          window.addEventListener("scroll", update);
+        },
+      }));
       window.Alpine = Alpine;
       Alpine.start();
     </script>
