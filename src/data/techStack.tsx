@@ -13,34 +13,11 @@ import nextLogo from "../assets/logos/next.png";
 import github from "../assets/logos/github.png";
 import reactRouter from "../assets/logos/react-router.png";
 import astro from "../assets/logos/astro.png";
-import bantali from "../assets/images/bantali.png";
 import alpine from "../assets/logos/alpine.png";
 import python from "../assets/logos/python.png";
-import portfolio from "../assets/images/portfolio.png";
-import portfolioVid from "../assets/images/site-tour2.mp4";
-import bantaliVid from "../assets/images/site-tour.mp4";
-interface technologyItemProps {
-  title: string;
-  color: string;
-  logo?: string;
-}
-interface experience {
-  date: string;
-  location: string;
-  position: string;
-  company: string;
-  description: string[] | string;
-}
-interface projects {
-  date: string;
-  title: string;
-  description: string;
-  link: string;
-  img: ImageMetadata;
-  vid: string;
-  technology: string[];
-}
-export const techStack: technologyItemProps[] = [
+import type { TechStackItem } from "../types";
+
+export const techStack: TechStackItem[] = [
   {
     logo: typescriptLogo.src,
     title: "Typescript",
@@ -125,52 +102,5 @@ export const techStack: technologyItemProps[] = [
     logo: python.src,
     title: "Python",
     color: "bg-red-300/20",
-  },
-];
-
-export const experience: experience[] = [
-  {
-    date: "Jan - Apr 2025",
-    location: "Muntinlupa City",
-    position: "Web Dev Intern",
-    company: "Advanced World Solutions",
-    description:
-      "Responsible for integrating APIs, making pages responsive and more front-end stuff.",
-  },
-  {
-    date: "July 2025 - Present",
-    location: "Muntinlupa City",
-    position: "Junior R&D Engineer",
-    company: "Advanced World Solutions",
-    description: "Currently undertaking 5 months training.",
-  },
-  {
-    date: "March 2026 - Present",
-    location: "Muntinlupa City",
-    position: "Junior R&D Engineer",
-    company: "Advanced World Solutions",
-    description: "Developing an RPA tool using Python to aid in the business process for an external client.",
-  },
-];
-
-export const projects: projects[] = [
-  {
-    date: "2024",
-    title: "OpticalRecords",
-    description:
-      "A records management, appointment tracking and inventory all in one.",
-    link: "https://github.com/cottonBuds211/bantali_optical",
-    img: bantali,
-    vid: bantaliVid,
-    technology: ["React", "TypeScript", "Tailwind", "Express JS", "PostgreSQL"],
-  },
-  {
-    date: "2025",
-    title: "Web Portfolio V1",
-    description: "My very own portfolio. Not a template.",
-    link: "https://github.com/cottonBuds211/portfolio-astro",
-    img: portfolio,
-    vid: portfolioVid,
-    technology: ["Astro JS", "Typescript", "Tailwind"],
   },
 ];
