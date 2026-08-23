@@ -1,12 +1,12 @@
 ---
-import Footer from "../components/Footer.astro";
-import Nav from "../components/Nav.astro";
 import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import NavBar from "../components/NavBar.astro";
 
 const { pageTitle } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="dark:bg-primary bg-secondary">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -24,14 +24,9 @@ const { pageTitle } = Astro.props;
   </head>
   <!--  -->
   <body
-    x-data="{locked: true}"
-    x-init="
-      setTimeout(() => locked = false, 6000)  
-  "
-    :class="{'overflow-hidden' : locked}"
-    class="font-inter text-gray-950"
+    class="font-inter bg-secondary dark:bg-primary text-text dark:text-secondary/80 mx-3 md:mx-auto text-p"
   >
-    <Nav />
+    <NavBar />
     <slot />
     <Footer />
   </body>

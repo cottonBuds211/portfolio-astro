@@ -13,32 +13,11 @@ import nextLogo from "../assets/logos/next.png";
 import github from "../assets/logos/github.png";
 import reactRouter from "../assets/logos/react-router.png";
 import astro from "../assets/logos/astro.png";
-import bantali from "../assets/images/bantali.png";
 import alpine from "../assets/logos/alpine.png";
-import portfolio from "../assets/images/portfolio.png";
-import portfolioVid from "../assets/images/site-tour2.mp4";
-import bantaliVid from "../assets/images/site-tour.mp4";
-interface technologyItemProps {
-  title: string;
-  color: string;
-  logo?: string;
-}
-interface experience {
-  date: string;
-  location: string;
-  position: string;
-  company: string;
-  description: string;
-}
-interface projects {
-  date: string;
-  title: string;
-  description: string;
-  link: string;
-  img: ImageMetadata;
-  vid: string;
-}
-export const techStack: technologyItemProps[] = [
+import python from "../assets/logos/python.png";
+import type { TechStackItem } from "../types";
+
+export const techStack: TechStackItem[] = [
   {
     logo: typescriptLogo.src,
     title: "Typescript",
@@ -119,43 +98,9 @@ export const techStack: technologyItemProps[] = [
     title: "React-router",
     color: "bg-red-300/20",
   },
-];
-
-export const experience: experience[] = [
   {
-    date: "Jan - Apr 2025",
-    location: "Muntinlupa City",
-    position: "Web Dev Intern",
-    company: "Advanced World Solutions",
-    description:
-      "Responsible for integrating APIs, making pages responsive and more front-end stuff.",
-  },
-  // {
-  // 	date: 'Jan - Apr 2025',
-  // 	location: 'Muntinlupa City',
-  // 	position: 'Web Dev Intern',
-  // 	company: 'Advanced World Solutions',
-  // 	description:
-  // 		'Responsible for integration API, making pages responsive.',
-  // },
-];
-
-export const projects: projects[] = [
-  {
-    date: "2024",
-    title: "OpticalRecords",
-    description:
-      "A records management, appointment tracking and inventory all in one.",
-    link: "https://github.com/cottonBuds211/bantali_optical",
-    img: bantali,
-    vid: bantaliVid,
-  },
-  {
-    date: "2025",
-    title: "Web Portfolio",
-    description: "My very own portfolio. Not a template.",
-    link: "https://github.com/cottonBuds211/portfolio-astro",
-    img: portfolio,
-    vid: portfolioVid,
+    logo: python.src,
+    title: "Python",
+    color: "bg-red-300/20",
   },
 ];

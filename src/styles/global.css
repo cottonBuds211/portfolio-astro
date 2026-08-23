@@ -1,56 +1,122 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
 
-@font-face {
+/* @font-face {
 	font-family: 'Inter';
 	src: url('../assets/font/Inter-Variable.ttf') format('truetype');
-}
+} */
 
 @font-face {
-	font-family: 'opensans';
-	src: url('../assets/font/OpenSans.ttf') format('truetype');
+	font-family: 'Playfair';
+	src: url('../assets/font/PlayFair.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
 }
 @font-face {
-	font-family: 'opensans';
-	src: url('../assets/font/OpenSans.ttf') format('truetype');
+	font-family: 'Playfair';
+	src: url('../assets/font/PlayFair.ttf') format('truetype');
 	font-weight: 600;
 	font-style: semibold;
 }
 @font-face {
-	font-family: 'opensans';
-	src: url('../assets/font/OpenSans.ttf') format('truetype');
+	font-family: 'Playfair';
+	src: url('../assets/font/PlayFair.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Inter';
+	src: url('../assets/font/Inter.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Inter';
+	src: url('../assets/font/Inter.ttf') format('truetype');
+	font-weight: 600;
+	font-style: bold;
+}
+@font-face {
+	font-family: 'Inter';
+	src: url('../assets/font/Inter.ttf') format('truetype');
 	font-weight: 300;
 	font-style: light;
 }
-
+@font-face {
+	font-family: 'DancingScript';
+	src: url('../assets/font/DancingScript.ttf') format('truetype');
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'DancingScript';
+	src: url('../assets/font/DancingScript.ttf') format('truetype');
+	font-weight: 600;
+}
+@font-face {
+	font-family: 'DancingScript';
+	src: url('../assets/font/DancingScript.ttf') format('truetype');
+	font-weight: 300;
+}
 @theme {
-	--color-secondary: oklch(0.373 0.034 259.733);
-	--color-default-bg: #f4f3f2;
+	/* --color-secondary: oklch(0.373 0.034 259.733);
+	--color-default-bg: #fafafa;
+	--color-white-bg: #ffffff;
 	--color-text-primary: oklch(13% 0.028 261.692);
-	--color-text-secondary: oklch(55.1% 0.027 264.364);
-
+	--color-text-secondary: oklch(55.1% 0.027 264.364); */
+	/* #F1F5F9	 oklch(0.95 0.005 260)	*/
+	--color-primary: oklch(0.373 0.034 259.733);
+	/* --color-secondary: hsl(0, 0%, 100%); */
+	--color-secondary:hsl(40, 27%, 96%);
+	--color-text: oklch(55.1% 0.027 264.364);
+	/* --color-accent: hsl(82, 76%, 56%); */
+	--color-accent: hsl(29, 91%, 54%);
 	--font-inter: 'Inter';
-	--font-wdx: 'wdx';
-	--font-opensans: 'opensans';
+	--font-playfair: 'Playfair';
+	--font-dancing-script:'DancingScript';
+
+	--text-h1: 3.815rem;
+	--text-h2: 3.052rem;
+	--text-h3: 2.441rem;
+	--text-h4: 1.953rem;
+	--text-h5: 1.563rem;
+	--text-h6: 1.25rem;
+	--text-p: 1rem;
+	--text-sm: 0.8rem;
+	--text-xs: 0.64rem;
 }
 html {
 	/* background-color:hsl(212, 45%, 94%); */
-	background-color: #f4f3f2;
 	margin: 0;
 	scroll-behavior: smooth;
+	/* font-size: 14px; */
 }
 
 body {
 	margin: 0;
 	width: 100%;
-	line-height: 2;
+	line-height: 1.6;
 }
-
+/* h1 {
+	font-size: 3.815rem;
+}
 h2 {
-	font-size: 1.3rem;
-	padding: 1rem 0;
+	font-size: 3.052rem;
 }
 h3 {
-	font-weight: bold;
+	font-size: 2.441rem;
 }
+h4 {
+	font-size: 1.953rem;
+}
+h5 {
+	font-size: 1.563rem;
+	font-family: "Playfair";
+	padding: 1rem 0;
+}
+h6 {
+	font-size: 1.25rem;
+} */
+/* p {
+	font-size: 1rem;
+} */

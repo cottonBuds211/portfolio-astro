@@ -1,37 +1,54 @@
 ---
-import Modal from "./Modal.astro";
+import type { CollectionEntry } from "astro:content";
+import LinkIcon from "./icons/LinkIcon.astro";
+import Modal from "./ui/Modal.astro";
+import Image from "astro/components/Image.astro";
+import Pill from "./ui/Pill.astro";
 
-const { date, title, description, link, img, vid } = Astro.props;
+interface Props {
+  projEntry: CollectionEntry<"projects">;
+}
+
+const { projEntry } = Astro.props;
+const { date, title, link, img, vid, technology } = projEntry.data;
 ---
 
-<div
-  class="flex flex-col lg:flex-row gap-4 justify-between items-center pl-8 transition-all ease-in duration-200 rounded-md cursor-default"
->
-  <div class="flex flex-1 flex-col gap-2">
-    <h4 class="text-sm">{date}</h4>
-    <h3 class="text-2xl">{title}</h3>
-    <p class="text-text-secondary leading-8">{description}</p>
-    <a
-      class="flex gap-2 items-center cursor-pointer text-blue-400"
-      href={link}
-      target="_blank"
-      >github.com
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-external-link-icon lucide-external-link"
-        ><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
-          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-        ></path></svg
-      ></a
-    >
+<Modal>
+  <div
+    slot="trigger"
+    class="min-w-[35ch] min-h-100 h-full bg-secondary dark:bg-primary border border-primary/10 hover:border-accent/80 dark:border-secondary/10 hover:cursor-pointer transition duration-300 rounded-sm"
+  >
+    <Image
+      src={img}
+      alt=""
+      class="h-full w-full bg-transparent object-cover brightness-90"
+      format="png"
+    />
+    <article class="flex flex-1 p-6 flex-col gap-2 h-40">
+      <header class="flex justify-between h-full">
+        <h6 class="text-p text-primary dark:text-secondary">{title}</h6>
+        <a
+          class="cursor-pointer"
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Github"
+        >
+          <LinkIcon
+            class="h-5 w-5 text-primary/50 hover:text-accent dark:text-secondary/50 stroke-2"
+            aria-hidden="true"
+            focusable="false"
+          />
+        </a>
+      </header>
+      <p class="text-sm">{date}</p>
+      <div class="prose-sm">
+        <slot />
+      </div>
+      <div class="flex flex-wrap gap-1">
+        {technology.map((tech: string) => <Pill title={tech} />)}
+      </div>
+    </article>
   </div>
 
   <Modal>
@@ -58,16 +75,31 @@ const { date, title, description, link, img, vid } = Astro.props;
           ></path><circle cx="12" cy="12" r="3"></circle></svg
         ></span
       >
+        <LinkIcon
+          class="h-6 w-6 text-primary/50 hover:text-accent dark:text-secondary/50 stroke-2"
+          aria-hidden="true"
+          focusable="false"
+        />
+      </a>
+    </span>
+    <div class="prose-sm">
+      <slot />
     </div>
-    <main slot="main" class="w-full h-full p-3 lg:p-10 lg:pt-0 rounded-2xl">
-      <p class="text-3xl text-text-primary">{title}</p>
-      <p class="text-text-secondary">{description}</p>
-      <hr class="my-2 text-black/10" />
+    <div class="flex gap-2 mt-2">
+      {technology.map((tech: string) => <Pill title={tech} />)}
+    </div>
+    <hr class="my-2 text-primary/10 dark:text-secondary/10" />
 
-      <video autoplay muted loop playsinline width="100%">
-        <source src={vid} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </main>
-  </Modal>
-</div>
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      width="100%"
+      aria-label=`Video demo of ${title}`
+    >
+      <source src={vid} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
+</Modal>

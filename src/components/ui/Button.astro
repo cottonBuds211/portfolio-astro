@@ -1,0 +1,29 @@
+---
+import LinkIcon from "../icons/LinkIcon.astro";
+
+const { title, type, link, target } = Astro.props;
+const defaultStyle =
+  "flex items-center py-2 px-4 flex gap-2 cursor-pointer text-primary transition-all ease-in duration-200 border-black/25 w-fit hover:translate-x-1 hover:translate-y-1 rounded-sm";
+
+const primary = "bg-accent text-secondary";
+---
+
+<div class="relative inline-block">
+  <span
+    class="absolute rounded-sm inset-0 bg-primary/40 dark:bg-secondary/40 -z-10 translate-x-1 translate-y-1"
+  ></span>
+  <a
+    class={`${defaultStyle} ${type === "primary" ? primary : "bg-secondary"}`}
+    href={link}
+    target={target}
+  >
+    {title}
+    {
+      title === "Resumé" ? (
+        <LinkIcon className="w-4 h-4" />
+      ) : (
+        ""
+      )
+    }
+  </a>
+</div>

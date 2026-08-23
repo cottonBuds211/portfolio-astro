@@ -1,5 +1,7 @@
 ---
-import Modal from "./Modal.astro";
+import DarkModeToggle from "./DarkModeToggle.astro";
+import DropDown from "./ui/DropDown.astro";
+import MenuIcon from "./icons/MenuIcon.astro";
 
 const navLinks = [
   {
@@ -7,68 +9,62 @@ const navLinks = [
     link: "experience",
   },
   { title: "Projects", link: "projects" },
-  { title: "Contact", link: "contacts" },
+  { title: "Contact", link: "contact" },
 ];
 ---
 
-<div class="h-full flex items-center mx-4 justify-between">
-  <a
-    class="w-10 h-10 font-bold bg-white rounded-lg flex justify-center items-center shadow-md cursor-pointer hover:scale-120 hover:rotate-360 transition ease-linear duration-150"
-    href="#top"
-  >
-    <span class="text-gray-800"> MD </span>
-  </a>
+<div
+  class="h-full flex items-center mx-4 justify-between text-primary dark:text-secondary"
+>
+  <div class="relative inline-block">
+    <span
+      class="absolute inset-0 rounded-lg bg-primary/50 dark:bg-secondary/50 -z-10 translate-x-1 translate-y-1"
+    ></span>
+    <a
+      class="w-10 h-10 font-bold bg-white rounded-lg flex justify-center items-center cursor-pointer hover:translate-x-1 hover:translate-y-1 hover:shadow-sm transition ease-linear duration-150"
+      href="#top"
+    >
+      <span class="text-gray-800"> MD </span>
+    </a>
+  </div>
 
-  <div class="hidden md:flex gap-3">
+  <div class="hidden md:flex gap-3 h-full items-center">
     {
       navLinks.map((link) => (
         <a
-          class="relative link group hover:cursor-pointer "
+          class="relative link group hover:cursor-pointer h-full flex items-center"
           href={`#${link.link}`}
         >
           {link.title}
-          <span class="absolute left-1/2 right-1/2 -bottom-0.5 h-0.5 bg-black/50 transform -translate-x-1/2 transition-all duration-300 group-hover:w-full w-0" />
+          <span class="absolute left-1/2 right-1/2 -bottom-0.5 h-0.5 bg-accent  transform -translate-x-1/2 transition-all duration-300 group-hover:w-full w-0" />
         </a>
       ))
     }
   </div>
-  
-  <div class="flex md:hidden">
-    <Modal>
-      <div slot="trigger">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-menu-icon lucide-menu"
-          ><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"
-          ></path></svg
-        >
-      </div>
-      <main
-        slot="main"
-        class="flex h-[90vh] justify-center items-center text-center"
-      >
-        <div class="flex flex-col w-full">
-          {
-            navLinks.map((link) => (
-              <a
-                @click="$refs.modal.close(); open = false"
-                href={`#${link.link}`}
-                class="w-full lg:w-fit"
-              >
-                {link.title}
-              </a>
-            ))
-          }
+  <div class="flex gap-2">
+    <DarkModeToggle />
+    <div class="flex md:hidden">
+      <DropDown>
+        <div slot="trigger">
+          <MenuIcon className="stroke-1" />
         </div>
-      </main>
-    </Modal>
+        <div slot="content">
+          <ul>
+            {
+              navLinks.map((link) => (
+                <li>
+                  <a
+                    class="relative p-2 hover:cursor-pointer h-full flex items-center border-b border-primary/10 dark:border-secondary/10 hover:dark:bg-secondary/40 rounded-sm hover:bg-primary/40"
+                    href={`#${link.link}`}
+                  >
+                    {link.title}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </DropDown>
+    </div>
   </div>
 </div>
