@@ -1,5 +1,12 @@
 ---
-const { date, position, company, description } = Astro.props;
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  expEntry: CollectionEntry<"experience">;
+}
+
+const { expEntry } = Astro.props;
+const { date, position, company } = expEntry.data;
 ---
 
 <div class="relative flex flex-col ext-text">
@@ -11,16 +18,7 @@ const { date, position, company, description } = Astro.props;
     </h6>
     <p class="text-sm mb-2 uppercase">{position}</p>
   </header>
-
-  {
-    Array.isArray(description) ? (
-      <ul class="list-disc pl-4 space-y-1">
-        {description.map((item) => (
-          <li>{item}</li>
-        ))}
-      </ul>
-    ) : (
-      <p >{description}</p>
-    )
-  }
+  <div class="prose-sm">
+    <slot />
+  </div>
 </div>

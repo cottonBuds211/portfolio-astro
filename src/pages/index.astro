@@ -1,14 +1,22 @@
 ---
+import "../styles/global.css";
+import { getCollection } from "astro:content";
 import Button from "../components/ui/Button.astro";
 import Experience from "../components/Experience.astro";
 import GithubIcon from "../components/icons/GithubIcon.astro";
 import LinkedInLogo from "../components/icons/LinkedInLogo.astro";
 import Project from "../components/Project.astro";
 import Technology from "../components/Technology.astro";
-import { experience, projects, techStack } from "../data/data";
+import { techStack } from "../data/techStack";
 import Layout from "../layouts/Layout.astro";
-import "../styles/global.css";
 import GmailIcon from "../assets/logos/gmail.png";
+
+const experienceEntries = await getCollection("experience");
+const projectEntries = await getCollection("projects");
+
+const sortedExperience = experienceEntries.sort((a, b) =>
+  b.id.localeCompare(a.id),
+);
 ---
 
 <Layout pageTitle="Manuel">
@@ -86,20 +94,16 @@ import GmailIcon from "../assets/logos/gmail.png";
       </h5>
       <div class="flex flex-wrap gap-4 mx-auto">
         {
-          projects.map((proj, index) => (
-            <div class="w-[35ch] mx-auto">
-              <Project
-                key={index}
-                date={proj.date}
-                title={proj.title}
-                description={proj.description}
-                link={proj.link}
-                img={proj.img}
-                vid={proj.vid}
-                technology={proj.technology}
-              />
-            </div>
-          ))
+          projectEntries.map(async (projEntry) => {
+            const { Content } = await projEntry.render();
+            return (
+              <div class="w-[35ch] mx-auto">
+                <Project projEntry={projEntry}>
+                  <Content />
+                </Project>
+              </div>
+            );
+          })
         }
       </div>
     </section>
@@ -114,22 +118,21 @@ import GmailIcon from "../assets/logos/gmail.png";
       </h5>
       <div class="flex flex-col mx-auto">
         {
-          experience.reverse().map((exp, index) => (
-            <article
-              class={`relative flex flex-col items-baseline ml-2 pl-6 pb-5 last:pb-0 border-l-2 border-accent/50 
+          sortedExperience.map(async (expEntry) => {
+            const { Content } = await expEntry.render();
+            return (
+              //Line beside experience
+              <article
+                class={`relative flex flex-col items-baseline ml-2 pl-6 pb-5 last:pb-0 border-l-2 border-accent/50 
                             before:content-[''] before:absolute before:w-3 before:h-3 before:bg-accent  before:rounded-full 
                             before:left-[-7px]`}
-            >
-              <Experience
-                key={index}
-                date={exp.date}
-                location={exp.location}
-                position={exp.position}
-                company={exp.company}
-                description={exp.description}
-              />
-            </article>
-          ))
+              >
+                <Experience expEntry={expEntry}>
+                  <Content />
+                </Experience>
+              </article>
+            );
+          })
         }
       </div>
     </section>
@@ -181,9 +184,7 @@ import GmailIcon from "../assets/logos/gmail.png";
     </section>
     <span id="contact" class="w-full h-px bg-primary/10"></span>
     <section class="flex flex-col">
-      <h5
-        class="contact-title text-h4 pb-10 text-primary dark:text-secondary"
-      >
+      <h5 class="contact-title text-h4 pb-10 text-primary dark:text-secondary">
         Contact
       </h5>
       <div class="flex flex-col gap-5">
