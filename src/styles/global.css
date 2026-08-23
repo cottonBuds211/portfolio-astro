@@ -1,63 +1,8 @@
 @import 'tailwindcss';
 @custom-variant dark (&:where(.dark, .dark *));
+@import "@fontsource-variable/inter";
+@import "@fontsource/dancing-script";
 
-/* @font-face {
-	font-family: 'Inter';
-	src: url('../assets/font/Inter-Variable.ttf') format('truetype');
-} */
-
-@font-face {
-	font-family: 'Playfair';
-	src: url('../assets/font/PlayFair.ttf') format('truetype');
-	font-weight: 400;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'Playfair';
-	src: url('../assets/font/PlayFair.ttf') format('truetype');
-	font-weight: 600;
-	font-style: semibold;
-}
-@font-face {
-	font-family: 'Playfair';
-	src: url('../assets/font/PlayFair.ttf') format('truetype');
-	font-weight: 300;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Inter';
-	src: url('../assets/font/Inter.ttf') format('truetype');
-	font-weight: 400;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'Inter';
-	src: url('../assets/font/Inter.ttf') format('truetype');
-	font-weight: 600;
-	font-style: bold;
-}
-@font-face {
-	font-family: 'Inter';
-	src: url('../assets/font/Inter.ttf') format('truetype');
-	font-weight: 300;
-	font-style: light;
-}
-@font-face {
-	font-family: 'DancingScript';
-	src: url('../assets/font/DancingScript.ttf') format('truetype');
-	font-weight: 400;
-}
-@font-face {
-	font-family: 'DancingScript';
-	src: url('../assets/font/DancingScript.ttf') format('truetype');
-	font-weight: 600;
-}
-@font-face {
-	font-family: 'DancingScript';
-	src: url('../assets/font/DancingScript.ttf') format('truetype');
-	font-weight: 300;
-}
 @theme {
 	/* --color-secondary: oklch(0.373 0.034 259.733);
 	--color-default-bg: #fafafa;
@@ -71,9 +16,8 @@
 	--color-text: oklch(55.1% 0.027 264.364);
 	/* --color-accent: hsl(82, 76%, 56%); */
 	--color-accent: hsl(29, 91%, 54%);
-	--font-inter: 'Inter';
-	--font-playfair: 'Playfair';
-	--font-dancing-script:'DancingScript';
+	--font-inter: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+	--font-dancing-script:"Dancing Script", cursive;
 
 	--text-h1: 3.815rem;
 	--text-h2: 3.052rem;
@@ -97,26 +41,3 @@ body {
 	width: 100%;
 	line-height: 1.6;
 }
-/* h1 {
-	font-size: 3.815rem;
-}
-h2 {
-	font-size: 3.052rem;
-}
-h3 {
-	font-size: 2.441rem;
-}
-h4 {
-	font-size: 1.953rem;
-}
-h5 {
-	font-size: 1.563rem;
-	font-family: "Playfair";
-	padding: 1rem 0;
-}
-h6 {
-	font-size: 1.25rem;
-} */
-/* p {
-	font-size: 1rem;
-} */

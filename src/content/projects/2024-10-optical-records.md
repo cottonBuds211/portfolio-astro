@@ -3,7 +3,7 @@ date: "2024"
 title: "OpticalRecords"
 link: "https://github.com/cottonBuds211/bantali_optical"
 img: "../../assets/images/bantali.png"
-vid: "../../assets/images/site-tour.mp4"
+vid: "assets/videos/site-tour.mp4"
 technology: ["React", "TypeScript", "Tailwind", "Express JS", "PostgreSQL"]
 ---
 

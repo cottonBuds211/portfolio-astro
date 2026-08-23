@@ -50,55 +50,46 @@ const { date, title, link, img, vid, technology } = projEntry.data;
       </div>
     </article>
   </div>
-
-  <Modal>
-    <div
-      slot="trigger"
-      class="relative group transition-all duration-300 hover:cursor-pointer shadow-2xl rounded-lg"
-    >
-      <img src={img.src} class="object-cover rounded-lg" loading="lazy" />
-      <span
-        class="absolute inset-0 flex justify-center items-center text-white bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-200 ease-in"
-        ><svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-eye-icon lucide-eye"
-          ><path
-            d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
-          ></path><circle cx="12" cy="12" r="3"></circle></svg
-        ></span
-      >
-      <LinkIcon
-        class="h-6 w-6 text-primary/50 hover:text-accent dark:text-secondary/50 stroke-2"
-        aria-hidden="true"
-        focusable="false"
-      />
-    </div>
-  </Modal>
-  <div class="prose-sm">
-    <slot />
-  </div>
-  <div class="flex gap-2 mt-2">
-    {technology.map((tech: string) => <Pill title={tech} />)}
-  </div>
-  <hr class="my-2 text-primary/10 dark:text-secondary/10" />
-
-  <video
-    autoplay
-    muted
-    loop
-    playsinline
-    width="100%"
-    aria-label=`Video demo of ${title}`
+  <section
+    slot="main"
+    class="w-full h-full p-3 lg:p-10 lg:pt-0 bg-secondary dark:bg-primary"
   >
-    <source src={vid} type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+    <span class="flex gap-4 items-center">
+      <h4 class="text-primary dark:text-secondary text-h4 font-semibold">
+        {title}
+      </h4>
+      <a
+        class="cursor-pointer"
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visit Github"
+      >
+        <LinkIcon
+          class="h-6 w-6 text-primary/50 hover:text-accent dark:text-secondary/50 stroke-2"
+          aria-hidden="true"
+          focusable="false"
+        />
+      </a>
+    </span>
+    <div class="prose-sm">
+      <slot />
+    </div>
+    <div class="flex gap-2 mt-2">
+      {technology.map((tech: string) => <Pill title={tech} />)}
+    </div>
+    <hr class="my-2 text-primary/10 dark:text-secondary/10" />
+
+    <video
+      class="w-full"
+      autoplay
+      muted
+      loop
+      playsinline
+      aria-label=`Video demo of ${title}`
+    >
+      <source src={vid} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
 </Modal>
