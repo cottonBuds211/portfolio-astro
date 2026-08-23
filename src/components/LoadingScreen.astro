@@ -1,0 +1,42 @@
+---
+// src/components/LoadingScreen.astro
+---
+
+<div
+  id="loading-screen"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-secondary dark:bg-primary transition-opacity duration-500"
+>
+  <img src="/logo.svg" alt="" class="h-16 w-16 animate-pulse" />
+</div>
+
+<style>
+  #loading-screen.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  const loadingScreen = document.getElementById("loading-screen");
+  const MIN_DISPLAY_MS = 1500;
+  const start = performance.now();
+
+  function hideLoadingScreen() {
+    const elapsed = performance.now() - start;
+    const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
+
+    setTimeout(() => {
+      loadingScreen?.classList.add("hide");
+      setTimeout(() => loadingScreen?.remove(), 500);
+    }, remaining);
+  }
+
+  if (document.readyState === "complete") {
+    hideLoadingScreen();
+  } else {
+    window.addEventListener("load", hideLoadingScreen);
+  }
+
+  // safety net — never trap the user behind the overlay
+  setTimeout(hideLoadingScreen, 4000);
+</script>

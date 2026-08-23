@@ -10,6 +10,8 @@ import Technology from "../components/Technology.astro";
 import { techStack } from "../data/techStack";
 import Layout from "../layouts/Layout.astro";
 import GmailIcon from "../assets/logos/gmail.png";
+import Footer from "../components/Footer.astro";
+import NavBar from "../components/NavBar.astro";
 
 const experienceEntries = await getCollection("experience");
 const projectEntries = await getCollection("projects");
@@ -20,6 +22,7 @@ const sortedExperience = experienceEntries.sort((a, b) =>
 ---
 
 <Layout pageTitle="Manuel">
+  <NavBar />
   <header id="top" class="flex justify-center">
     <div
       class="relative w-full max-w-[100ch] h-180 flex flex-col justify-center mx-4 md:mx-auto"
@@ -201,6 +204,7 @@ const sortedExperience = experienceEntries.sort((a, b) =>
       </div>
     </section>
   </main>
+  <Footer />
 
   <script>
     import { navAnimation } from "../animations/navAnimations";

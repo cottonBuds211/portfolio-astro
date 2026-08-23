@@ -41,3 +41,7 @@ body {
 	width: 100%;
 	line-height: 1.6;
 }
+
+[x-cloak] {
+  display: none !important;
+}
