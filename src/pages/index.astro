@@ -12,6 +12,7 @@ import Layout from "../layouts/Layout.astro";
 import GmailIcon from "../assets/logos/gmail.png";
 import Footer from "../components/Footer.astro";
 import NavBar from "../components/NavBar.astro";
+import type { TechStackItem } from "../types";
 
 const experienceEntries = await getCollection("experience");
 const projectEntries = await getCollection("projects");
@@ -27,11 +28,6 @@ const sortedExperience = experienceEntries.sort((a, b) =>
     <div
       class="relative w-full max-w-[100ch] h-180 flex flex-col justify-center mx-4 md:mx-auto"
     >
-      <!-- <div
-        class="katakana absolute hidden md:flex flex-col left-170 text-8xl font-semibold text-primary/10 dark:text-secondary/5"
-      >
-        {"マ ヌ エ ル ".split("").map((char) => <span>{char}</span>)}
-      </div> -->
       <div
         class="text-primary w-full dark:text-secondary font-semibold leading-12 md:leading-16 text-h5 md:text-h4"
       >
@@ -82,6 +78,39 @@ const sortedExperience = experienceEntries.sort((a, b) =>
             target="_blank"
           />
           <Button title="Contact" link="#contact" />
+        </div>
+      </div>
+      <div class="relative mt-5 overflow-hidden">
+        <div
+          class="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-secondary to-transparent dark:from-primary dark:to-transparent"
+        >
+        </div>
+        <div class="flex w-max animate-scroll gap-12 py-6">
+          {
+            techStack.map((item: TechStackItem) => (
+              <div class="gap-2 flex items-center">
+                <img src={item.logo} class="w-4 h-4" loading="lazy" />
+                <span class="text-md font-medium text-gray-500">
+                  {item.title}
+                </span>
+              </div>
+            ))
+          }
+
+          {
+            techStack.map((item: TechStackItem) => (
+              <div class="gap-2 flex items-center">
+                <img src={item.logo} class="w-4 h-4" loading="lazy" />
+                <span class="text-md font-medium text-gray-500">
+                  {item.title}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+        <div
+          class="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-lfrom-secondary to-transparent dark:from-primary dark:to-transparent"
+        >
         </div>
       </div>
     </div>
