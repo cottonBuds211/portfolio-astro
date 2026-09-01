@@ -5,8 +5,18 @@ const { logo, title, className } = Astro.props;
 <span
   class=`${className} w-fit h-fit border border-primary/10 dark:border-secondary/10 p-3 hover:border-accent/80 flex items-center gap-2 transition-all duration-200 ease-in hover:bg-slate-500/20 dark:hover:bg-secondary/10 hover:backdrop-blur-2xl cursor-default rounded-sm`
 >
-  {logo && <img src={logo} class="w-5" loading="lazy" />}
+  {
+    logo && (
+      <img
+        src={logo}
+        class="w-5"
+        loading="eager"
+        fetchpriority="high"
+        alt={title}
+      />
+    )
+  }
   <div>
     <p class="font-light text-md">{title}</p>
   </div>
-</div>
+</span>

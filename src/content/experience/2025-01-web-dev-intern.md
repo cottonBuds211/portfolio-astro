@@ -1,7 +1,7 @@
 ---
 date: "Jan - Apr 2025"
 location: "Muntinlupa City"
-position: "Junior R&D Engineer"
+position: "Web Developer Inten"
 company: "Advanced World Solutions"
 ---
 

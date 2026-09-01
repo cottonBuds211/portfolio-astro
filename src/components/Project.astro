@@ -14,6 +14,7 @@ const { date, title, link, img, vid, technology } = projEntry.data;
 ---
 
 <Modal>
+  <!-- Trigger (the card itself) -->
   <div
     slot="trigger"
     class="min-w-[35ch] min-h-100 h-full bg-secondary dark:bg-primary border border-primary/10 hover:border-accent/80 dark:border-secondary/10 hover:cursor-pointer transition duration-300 rounded-sm"
@@ -21,8 +22,10 @@ const { date, title, link, img, vid, technology } = projEntry.data;
     <Image
       src={img}
       alt=""
-      class="h-full w-full bg-transparent object-cover brightness-90"
+      class="h-50 w-full bg-transparent object-cover brightness-90"
       format="png"
+      loading="eager"
+      fetchpriority="high"
     />
     <article class="flex flex-1 p-6 flex-col gap-2 h-40">
       <header class="flex justify-between h-full">
@@ -42,7 +45,7 @@ const { date, title, link, img, vid, technology } = projEntry.data;
         </a>
       </header>
       <p class="text-sm">{date}</p>
-      <div class="prose-sm">
+      <div class="prose-sm text-sm">
         <slot />
       </div>
       <div class="flex flex-wrap gap-1">
@@ -50,6 +53,8 @@ const { date, title, link, img, vid, technology } = projEntry.data;
       </div>
     </article>
   </div>
+
+  <!-- Modal content -->
   <section
     slot="main"
     class="w-full h-full p-3 lg:p-10 lg:pt-0 bg-secondary dark:bg-primary"
@@ -81,6 +86,7 @@ const { date, title, link, img, vid, technology } = projEntry.data;
     <hr class="my-2 text-primary/10 dark:text-secondary/10" />
 
     <video
+      preload="none"
       class="w-full"
       autoplay
       muted
